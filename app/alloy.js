@@ -15,13 +15,17 @@ var debug = false;
 
 
 //Widgets
-var Navigation = Alloy.createWidget('navigation');//.createController('navigation');
-console.log(Navigation);
+
 
 var APP = {
     //Device Info
     osname : Ti.Platform.osname,
     deviceWidth : Ti.Platform.displayCaps.platformWidth,
-    deviceHeight : Ti.Platform.displayCaps.platformHeight
+    deviceHeight : Ti.Platform.displayCaps.platformHeight,
 
+
+    //Check network connection
+    checkNetwork : function(){
+        return Titanium.Network.getOnline();
+    },
 };
