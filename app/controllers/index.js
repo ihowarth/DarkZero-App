@@ -1,4 +1,6 @@
 function initNavigation(){
+    APP.setFirstTimeFalse();
+    
     Alloy.Globals.NavigationWidget = $.navigationView;
     //NavBar
     $.navigationView.toggleAnimation();

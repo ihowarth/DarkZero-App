@@ -17,12 +17,26 @@ var debug = false;
 //Widgets
 
 
+//Libs
+Alloy.Globals.darkZeroLib = require('darkZero');
+
+
+//Collections
+Alloy.Collections.team = Alloy.createCollection('team');
+
+
 var APP = {
     //Device Info
     osname : Ti.Platform.osname,
     deviceWidth : Ti.Platform.displayCaps.platformWidth,
     deviceHeight : Ti.Platform.displayCaps.platformHeight,
-
+    
+    //FirstTimeCheck
+    firstTime : Ti.App.Properties.getString('first', 'true'),
+    //SetFirstTimeFalse
+    setFirstTimeFalse: function(){
+        Ti.App.Properties.setString('first', 'false');
+    },
 
     //Check network connection
     checkNetwork : function(){
