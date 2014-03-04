@@ -1,0 +1,11 @@
+<Alloy>
+	<TableViewRow id="row">
+		<ImageView id='image' image='{image}'/>
+		<View id='labelContainer'>
+			<Label id='name' text='{name}'/>
+			<Label id='occupation' text='{occupation}'/>
+			<Label id='favouriteGames' text='{favouriteGames}'/>
+			<Label id='bio' text='{bio}'/>
+		</View>
+	</TableViewRow>
+</Alloy>

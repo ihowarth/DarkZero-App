@@ -1,0 +1,1 @@
+module.exports = [{"isId":true,"priority":100000.0009,"key":"aboutView","style":{backgroundColor:"blue",}}];

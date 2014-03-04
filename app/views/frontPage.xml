@@ -1,0 +1,7 @@
+<Alloy>
+	<View id='mainView'>
+		<TableView id='reviewTable'>
+			
+		</TableView>
+	</View>
+</Alloy>

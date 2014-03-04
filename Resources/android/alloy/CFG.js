@@ -1,0 +1,1 @@
+module.exports={"dependencies":{"navigation":"1.0"}};

@@ -1,0 +1,11 @@
+<Alloy>
+	<View id='container'>
+		<View id='navBar'>
+			<Label id='pageTitle'/>
+			<ImageView id='leftNavButton'/>
+			<ImageView id='rightNavButton'/>
+			<View id='shadow'/> 
+		</View>
+		<View id='content'/>
+	</View>
+</Alloy>

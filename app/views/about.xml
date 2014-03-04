@@ -1,0 +1,16 @@
+<Alloy>
+	<View id='container'>
+		<ScrollView id="aboutView">
+			<ImageView id='logo'/>
+			<Label id='info'/>
+			<Label id='emailLink'/>
+			<Label id='follow'/>
+			<ImageView id='facebook'/>
+			<ImageView id='twitter'/>
+			<Label id='meet'/>
+			<TableView id='teamTable' dataCollection='team' dataTransform='addHeaders'>
+				<Require src='teamRow' id='row'/>
+			</TableView>
+		</ScrollView>
+	</View>
+</Alloy>

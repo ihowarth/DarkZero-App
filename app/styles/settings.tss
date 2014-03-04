@@ -1,0 +1,47 @@
+'#container' : {
+	backgroundColor: '#ffffff'
+},
+'#settingsView' : {
+	backgrounColor: '#ffffff',
+	width: 300,
+},
+
+
+'#pushNotificationsSwitch' : {
+	right: 10,
+	top: 35,
+	value: false,
+},
+'#themeSwitch' : {
+	right: 10,
+	top: 85,
+	value: true
+},
+'#soundsSwitch' : {
+	right: 10,
+	top: 135,
+	value: true
+},
+
+
+'#pushNotificationsLabel' : {
+	left: 10,
+	top: 40,
+	text: 'Allow Push notifications',
+	font: {fontSize: 12},
+	color: '#707070'
+},
+'#themeLabel' : {
+	left: 10,
+	top: 90,
+	text: 'Enable light theme',
+	font: {fontSize: 12},
+	color: '#707070'
+},
+'#soundsLabel' : {
+	left: 10,
+	top: 140,
+	text: 'Enable sounds',
+	font: {fontSize: 12},
+	color: '#707070'
+}

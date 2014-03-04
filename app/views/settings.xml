@@ -1,0 +1,12 @@
+<Alloy>
+	<View id='container'>
+		<View id='settingsView'>
+			<Switch id="pushNotificationsSwitch"/>
+			<Switch id="themeSwitch"/>
+			<Switch id="soundsSwitch"/>
+			<Label id='pushNotificationsLabel'/>
+			<Label id='themeLabel'/>
+			<Label id='soundsLabel'/>
+		</View>
+	</View>
+</Alloy>
