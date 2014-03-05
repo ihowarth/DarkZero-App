@@ -1,5 +1,4 @@
 <Alloy>
 	<Window id='mainWin'>
-		<Widget src='navigation' id='navigationView'>
 	</Window>
 </Alloy>

@@ -3,12 +3,13 @@ var args = arguments[0] || {};
 function init(){
     //Get team about data, only if it doesn't exist
     Alloy.Collections.team.fetch();
-    console.log(Alloy.Collections.team.length);
     if(Alloy.Collections.team.length == 0){
         Alloy.Globals.darkZeroLib.createTeamCollection();
     }
     
-    
+    Alloy.Globals.NavigationWidget.newLevel({title:'About'},
+                                            {title:'Back', callbackType:'close'},
+                                            {});
 };
 
 function addEventListeners(){

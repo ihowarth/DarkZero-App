@@ -10,7 +10,19 @@ function __processArg(obj, key) {
 function Controller() {
     function initNavigation() {
         APP.setFirstTimeFalse();
-        Alloy.Globals.NavigationWidget = $.navigationView;
+        Alloy.Globals.NavigationWidget.newLevel({
+            title: "DarkZero",
+            controller: "frontPage"
+        }, {
+            image: "Settings.png",
+            callback: "settings",
+            callbackType: "open"
+        }, {
+            image: "Information.png",
+            callback: "about",
+            callbackType: "open"
+        });
+        $.mainWin.add(Alloy.Globals.NavigationWidget.getView());
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -27,11 +39,6 @@ function Controller() {
         id: "mainWin"
     });
     $.__views.mainWin && $.addTopLevelView($.__views.mainWin);
-    $.__views.navigationView = Alloy.createWidget("navigation", "widget", {
-        id: "navigationView",
-        __parentSymbol: $.__views.mainWin
-    });
-    $.__views.navigationView.setParent($.__views.mainWin);
     exports.destroy = function() {};
     _.extend($, $.__views);
     initNavigation();

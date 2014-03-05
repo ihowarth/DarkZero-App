@@ -2,6 +2,8 @@ var Alloy = require("alloy"), _ = Alloy._, Backbone = Alloy.Backbone;
 
 var debug = false;
 
+Alloy.Globals.NavigationWidget = Alloy.createWidget("navigation");
+
 Alloy.Globals.darkZeroLib = require("darkZero");
 
 Alloy.Collections.team = Alloy.createCollection("team");

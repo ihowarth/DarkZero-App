@@ -29,8 +29,13 @@ function Controller() {
     }
     function init() {
         Alloy.Collections.team.fetch();
-        console.log(Alloy.Collections.team.length);
         0 == Alloy.Collections.team.length && Alloy.Globals.darkZeroLib.createTeamCollection();
+        Alloy.Globals.NavigationWidget.newLevel({
+            title: "About"
+        }, {
+            title: "Back",
+            callbackType: "close"
+        }, {});
     }
     function addEventListeners() {
         $.emailLink.addEventListener("click", function() {

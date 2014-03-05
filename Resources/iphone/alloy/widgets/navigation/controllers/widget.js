@@ -71,6 +71,19 @@ function Controller() {
     $.__views.container.add($.__views.content);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    exports.toggleAnimation = function() {
+        animationOn != animationOn;
+    };
+    exports.newLevel = function(content, left, right) {
+        $.pageTitle = content.title || $.pageTitle;
+        content.controller && $.content.add(Alloy.createController(content.controller).getView());
+        $.leftNavButton.image = left.image || null;
+        $.leftNavButton.title = left.title || null;
+        $.rightNavButton.image = right.image || null;
+        $.rightNavButton.title = right.title || null;
+    };
+    $.leftNavButton.addEventListener("click", function() {});
+    $.rightNavButton.addEventListener("click", function() {});
     _.extend($, exports);
 }
 

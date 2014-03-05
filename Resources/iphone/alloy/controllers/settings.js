@@ -8,7 +8,14 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function init() {}
+    function init() {
+        Alloy.Globals.NavigationWidget.newLevel({
+            title: "Settings"
+        }, {}, {
+            title: "Back",
+            callbackType: "close"
+        });
+    }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "settings";
     if (arguments[0]) {
