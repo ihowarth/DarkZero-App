@@ -14,6 +14,14 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
+    function setNavBar(content, left, right) {
+        console.log(content);
+        $.pageTitle.text = content.title;
+        $.leftNavButton.image = left.image || null;
+        $.leftNavButton.visible = left.image ? true : false;
+        $.rightNavButton.image = right.image || null;
+        $.rightNavButton.visible = right.image ? true : false;
+    }
     new (require("alloy/widget"))("navigation");
     this.__widgetId = "navigation";
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -71,19 +79,61 @@ function Controller() {
     $.__views.container.add($.__views.content);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var pageStack = [];
+    var viewStack = [];
+    var leftButtonStack = {};
+    var rightButtonStack = {};
     exports.toggleAnimation = function() {
         animationOn != animationOn;
     };
-    exports.newLevel = function(content, left, right) {
-        $.pageTitle = content.title || $.pageTitle;
-        content.controller && $.content.add(Alloy.createController(content.controller).getView());
-        $.leftNavButton.image = left.image || null;
-        $.leftNavButton.title = left.title || null;
-        $.rightNavButton.image = right.image || null;
-        $.rightNavButton.title = right.title || null;
+    exports.editNavView = function(navBar) {
+        $.navBar.height = navBar.height;
+        $.navBar.backgroundColor = navBar.backgroundColor;
+        $.shadow.visible = navBar.shadow;
     };
-    $.leftNavButton.addEventListener("click", function() {});
-    $.rightNavButton.addEventListener("click", function() {});
+    exports.addNewView = function(content, left, right) {
+        if (content.controller) {
+            var view = Alloy.createController(content.controller).getView();
+            $.content.add(view);
+            viewStack.push(view);
+        }
+        setNavBar(content, left, right);
+        pageStack.push(content);
+        leftButtonStack[content.title] = left;
+        rightButtonStack[content.title] = right;
+    };
+    $.leftNavButton.addEventListener("click", function() {
+        var content = pageStack[pageStack.length - 1];
+        var prevContent = pageStack[pageStack.length - 2];
+        if ("open" == leftButtonStack[content.title].callbackType) {
+            var view = Alloy.createController(leftButtonStack[content.title].callback).getView();
+            $.content.add(view);
+            viewStack.push(view);
+        } else if ("close" == leftButtonStack[content.title].callbackType) {
+            $.content.remove(viewStack[viewStack.length - 1]);
+            setNavBar(prevContent, leftButtonStack[prevContent.title], rightButtonStack[prevContent.title]);
+            pageStack.pop();
+            viewStack.pop();
+            delete leftButtonStack[content.title];
+            delete rightButtonStack[content.title];
+        } else leftButtonStack[content].callback();
+    });
+    $.rightNavButton.addEventListener("click", function() {
+        var content = pageStack[pageStack.length - 1];
+        var prevContent = pageStack[pageStack.length - 2];
+        if ("open" == rightButtonStack[content.title].callbackType) {
+            var view = Alloy.createController(rightButtonStack[content.title].callback).getView();
+            $.content.add(view);
+            viewStack.push(view);
+        } else if ("close" == rightButtonStack[content.title].callbackType) {
+            $.content.remove(viewStack[viewStack.length - 1]);
+            setNavBar(prevContent, leftButtonStack[prevContent.title], rightButtonStack[prevContent.title]);
+            pageStack.pop();
+            viewStack.pop();
+            delete leftButtonStack[content.title];
+            delete rightButtonStack[content.title];
+        } else rightButtonStack[content].callback();
+    });
     _.extend($, exports);
 }
 

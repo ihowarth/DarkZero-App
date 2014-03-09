@@ -9,12 +9,25 @@ function __processArg(obj, key) {
 
 function Controller() {
     function initNavigation() {
-        Alloy.Globals.NavigationWidget = $.navigationView;
-        $.navigationView.toggleAnimation();
-        $.navigationView.pageTitle.text = "DarkZero";
-        $.navigationView.changeLeftNavButton("settings", "/Settings.png");
-        $.navigationView.changeRightNavButton("about", "/Information.png");
-        $.navigationView.content.add(Alloy.createController("frontPage").getView());
+        APP.setFirstTimeFalse();
+        Alloy.Globals.NavigationWidget.editNavView({
+            height: 60,
+            backgroundColor: "#f0f0f0",
+            shadow: true
+        });
+        Alloy.Globals.NavigationWidget.newLevel({
+            title: "DarkZero",
+            controller: "frontPage"
+        }, {
+            image: "Settings.png",
+            callback: "settings",
+            callbackType: "open"
+        }, {
+            image: "Information.png",
+            callback: "about",
+            callbackType: "open"
+        });
+        $.mainWin.add(Alloy.Globals.NavigationWidget.getView());
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "index";
@@ -31,11 +44,6 @@ function Controller() {
         id: "mainWin"
     });
     $.__views.mainWin && $.addTopLevelView($.__views.mainWin);
-    $.__views.navigationView = Alloy.createWidget("navigation", "widget", {
-        id: "navigationView",
-        __parentSymbol: $.__views.mainWin
-    });
-    $.__views.navigationView.setParent($.__views.mainWin);
     exports.destroy = function() {};
     _.extend($, $.__views);
     initNavigation();

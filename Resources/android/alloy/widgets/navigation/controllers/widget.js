@@ -14,42 +14,6 @@ function __processArg(obj, key) {
 }
 
 function Controller() {
-    function animateViewIn(direction) {
-        var controller = direction;
-        controller = "left" == controller ? leftButtonController : rightButtonController;
-        newView = Alloy.createController(controller).getView();
-        imageStack.push({
-            view: newView,
-            direction: direction
-        });
-        "left" == direction ? newView.right = APP.deviceWidth - 1 : newView.left = APP.deviceWidth - 1;
-        $.content.add(newView);
-        "left" == direction ? newView.animate({
-            right: 0
-        }) : newView.animate({
-            left: 0
-        });
-    }
-    function animateViewOut() {
-        imageStack[imageStack.length - 1].view;
-        var leftAnimation = Ti.UI.createAnimation({
-            right: APP.deviceWidth - 1
-        });
-        var rightAnimation = Ti.UI.createAnimation({
-            left: APP.deviceWidth - 1
-        });
-        "left" == imageStack[imageStack.length - 1].direction ? newView.animate(leftAnimation) : newView.animate(rightAnimation);
-        leftAnimation.addEventListener("complete", function() {
-            $.content.remove(newView);
-            newView = null;
-            imageStack.shift();
-        });
-        rightAnimation.addEventListener("complete", function() {
-            $.content.remove(newView);
-            newView = null;
-            imageStack.shift();
-        });
-    }
     new (require("alloy/widget"))("navigation");
     this.__widgetId = "navigation";
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
@@ -107,44 +71,37 @@ function Controller() {
     $.__views.container.add($.__views.content);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var leftButtonController = null;
-    var rightButtonController = null;
-    var imageStack = [];
-    var animationOn = true;
+    var pageStack = [];
+    var leftButtonStack = {};
+    var rightButtonStack = {};
     exports.toggleAnimation = function() {
         animationOn != animationOn;
     };
-    var closeCurrentView = exports.closeCurrentView = function() {
-        if (imageStack.length > 0) if (animationOn) animateViewOut(); else {
-            $.content.remove[imageStack.length - 1];
-            imageStack.shift();
-        }
+    exports.editNavView = function(navBar) {
+        $.navBar.height = navBar.height;
+        $.navBar.backgroundColor = navBar.backgroundColor;
+        $.shadow.visible = navBar.shadow;
     };
-    exports.changeLeftNavButton = function(leftNavButtonController, leftNavButtonImage) {
-        leftButtonController = leftNavButtonController;
-        if (leftNavButtonImage) {
-            $.leftNavButton.visible = true;
-            $.leftNavButton.image = leftNavButtonImage;
-        } else $.leftNavButton.visible = false;
-    };
-    exports.changeRightNavButton = function(rightNavButtonController, rightNavButtonImage) {
-        rightButtonController = rightNavButtonController;
-        if (rightNavButtonImage) {
-            $.rightNavButton.visible = true;
-            $.rightNavButton.image = rightNavButtonImage;
-        } else $.rightNavButton.visible = false;
+    exports.newLevel = function(content, left, right) {
+        $.pageTitle = content.title || null;
+        content.controller && $.content.add(Alloy.createController(content.controller).getView());
+        $.leftNavButton.image = left.image || null;
+        $.leftNavButton.title = left.title || null;
+        $.leftNavButton.visible = left.image || left.title ? true : false;
+        $.rightNavButton.image = right.image || null;
+        $.rightNavButton.title = right.title || null;
+        $.rightNavButton.visible = right.image || right.title ? true : false;
+        pageStack.push(content);
+        leftButtonStack[content.title] = left;
+        rightButtonStack[content.title] = right;
     };
     $.leftNavButton.addEventListener("click", function() {
-        if ("close" == leftButtonController) closeCurrentView(); else if (animationOn) animateViewIn("left"); else {
-            $.content.add(Alloy.createController(leftButtonController).getView());
-            imageStack.push(Alloy.createController(leftButtonController).getView());
-        }
+        var content = pageStack[pageStack.length - 1];
+        "open" == leftButtonStack[content.title].callbackType ? $.content.add(Alloy.createController(leftButtonStack[content.title].callback).getView()) : "close" == leftButtonStack[content.title].callbackType || leftButtonStack[content].callback();
     });
     $.rightNavButton.addEventListener("click", function() {
-        if ("close" == rightButtonController) closeCurrentView(); else if (animationOn) animateViewIn("right"); else {
-            $.content.add(Alloy.createController(rightButtonController).getView());
-            imageStack.push(Alloy.createController(rightButtonController).getView());
-        }
+        var content = pageStack[pageStack.length - 1];
+        "open" == rightButtonStack[content.title].callbackType ? $.content.add(Alloy.createController(rightButtonStack[content.title].callback).getView()) : "close" == rightButtonStack[content.title].callbackType || rightButtonStack[content].callback();
     });
     _.extend($, exports);
 }

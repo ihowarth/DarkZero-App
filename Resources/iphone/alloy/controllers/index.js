@@ -10,7 +10,13 @@ function __processArg(obj, key) {
 function Controller() {
     function initNavigation() {
         APP.setFirstTimeFalse();
-        Alloy.Globals.NavigationWidget.newLevel({
+        console.log("INIT");
+        Alloy.Globals.NavigationWidget.editNavView({
+            height: 60,
+            backgroundColor: "#f0f0f0",
+            shadow: true
+        });
+        Alloy.Globals.NavigationWidget.addNewView({
             title: "DarkZero",
             controller: "frontPage"
         }, {

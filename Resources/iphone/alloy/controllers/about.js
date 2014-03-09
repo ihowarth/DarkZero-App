@@ -28,14 +28,13 @@ function Controller() {
         $.__views.teamTable.setData(rows);
     }
     function init() {
-        Alloy.Collections.team.fetch();
-        0 == Alloy.Collections.team.length && Alloy.Globals.darkZeroLib.createTeamCollection();
-        Alloy.Globals.NavigationWidget.newLevel({
+        Alloy.Globals.NavigationWidget.addNewView({
             title: "About"
         }, {
-            title: "Back",
+            image: "Settings.png",
             callbackType: "close"
         }, {});
+        addEventListeners();
     }
     function addEventListeners() {
         $.emailLink.addEventListener("click", function() {
@@ -143,7 +142,6 @@ function Controller() {
     _.extend($, $.__views);
     arguments[0] || {};
     init();
-    addEventListeners();
     _.extend($, exports);
 }
 

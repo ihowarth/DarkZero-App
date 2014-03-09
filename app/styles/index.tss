@@ -2,6 +2,3 @@
 	backgroundColor:"#ffffff",
 	layout: 'vertical'
 }
-'#navigationView' : {
-	
-}

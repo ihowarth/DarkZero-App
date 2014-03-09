@@ -9,10 +9,10 @@ function __processArg(obj, key) {
 
 function Controller() {
     function init() {
-        Alloy.Globals.NavigationWidget.newLevel({
+        Alloy.Globals.NavigationWidget.addNewView({
             title: "Settings"
         }, {}, {
-            title: "Back",
+            image: "Information.png",
             callbackType: "close"
         });
     }

@@ -1,16 +1,13 @@
 var args = arguments[0] || {};
 
 function init(){
-    //Get team about data, only if it doesn't exist
-    Alloy.Collections.team.fetch();
-    if(Alloy.Collections.team.length == 0){
-        Alloy.Globals.darkZeroLib.createTeamCollection();
-    }
-    
-    Alloy.Globals.NavigationWidget.newLevel({title:'About'},
-                                            {title:'Back', callbackType:'close'},
-                                            {});
+    Alloy.Globals.NavigationWidget.addNewView({title:'About'},
+                                              {image:'Settings.png', callbackType:'close'},
+                                              {});
+                                                      
+    addEventListeners();
 };
+init();
 
 function addEventListeners(){
     $.emailLink.addEventListener('click', function(){
@@ -29,9 +26,6 @@ function addEventListeners(){
         }
     });
 };
-
-init();
-addEventListeners();
 
 function addHeaders(model){
     var transform = model.toJSON();

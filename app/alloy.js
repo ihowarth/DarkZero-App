@@ -20,7 +20,6 @@ Alloy.Globals.NavigationWidget = Alloy.createWidget('navigation');
 //Libs
 Alloy.Globals.darkZeroLib = require('darkZero');
 
-
 //Collections
 Alloy.Collections.team = Alloy.createCollection('team');
 
