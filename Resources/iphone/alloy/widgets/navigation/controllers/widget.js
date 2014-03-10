@@ -4,33 +4,45 @@ function WPATH(s) {
     return path;
 }
 
-function __processArg(obj, key) {
-    var arg = null;
-    if (obj) {
-        arg = obj[key] || null;
-        delete obj[key];
-    }
-    return arg;
-}
-
 function Controller() {
     function setNavBar(content, left, right) {
-        console.log(content);
         $.pageTitle.text = content.title;
         $.leftNavButton.image = left.image || null;
         $.leftNavButton.visible = left.image ? true : false;
         $.rightNavButton.image = right.image || null;
         $.rightNavButton.visible = right.image ? true : false;
     }
+    function animateIn(direction, view) {
+        "left" == direction ? view.right = APP.deviceWidth - 1 : view.left = APP.deviceWidth - 1;
+        $.content.add(view);
+        "left" == direction ? view.animate({
+            right: 0
+        }) : view.animate({
+            left: 0
+        });
+    }
+    function animateOut(direction, view) {
+        var leftAnimation = Ti.UI.createAnimation({
+            left: APP.deviceWidth - 1
+        });
+        var rightAnimation = Ti.UI.createAnimation({
+            right: APP.deviceWidth - 1
+        });
+        "left" == direction ? view.animate(leftAnimation) : view.animate(rightAnimation);
+        leftAnimation.addEventListener("complete", function() {
+            $.content.remove(view);
+        });
+        rightAnimation.addEventListener("complete", function() {
+            $.content.remove(view);
+        });
+    }
     new (require("alloy/widget"))("navigation");
     this.__widgetId = "navigation";
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "widget";
-    if (arguments[0]) {
-        __processArg(arguments[0], "__parentSymbol");
-        __processArg(arguments[0], "$model");
-        __processArg(arguments[0], "__itemTemplate");
-    }
+    arguments[0] ? arguments[0]["__parentSymbol"] : null;
+    arguments[0] ? arguments[0]["$model"] : null;
+    arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
     $.__views.container = Ti.UI.createView({
@@ -79,12 +91,13 @@ function Controller() {
     $.__views.container.add($.__views.content);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    var animateOn = true;
     var pageStack = [];
     var viewStack = [];
     var leftButtonStack = {};
     var rightButtonStack = {};
     exports.toggleAnimation = function() {
-        animationOn != animationOn;
+        animateOn != animateOn;
     };
     exports.editNavView = function(navBar) {
         $.navBar.height = navBar.height;
@@ -107,10 +120,10 @@ function Controller() {
         var prevContent = pageStack[pageStack.length - 2];
         if ("open" == leftButtonStack[content.title].callbackType) {
             var view = Alloy.createController(leftButtonStack[content.title].callback).getView();
-            $.content.add(view);
             viewStack.push(view);
+            animateOn ? animateIn("left", view) : $.content.add(view);
         } else if ("close" == leftButtonStack[content.title].callbackType) {
-            $.content.remove(viewStack[viewStack.length - 1]);
+            animateOn ? animateOut("left", viewStack[viewStack.length - 1]) : $.content.remove(viewStack[viewStack.length - 1]);
             setNavBar(prevContent, leftButtonStack[prevContent.title], rightButtonStack[prevContent.title]);
             pageStack.pop();
             viewStack.pop();
@@ -123,10 +136,10 @@ function Controller() {
         var prevContent = pageStack[pageStack.length - 2];
         if ("open" == rightButtonStack[content.title].callbackType) {
             var view = Alloy.createController(rightButtonStack[content.title].callback).getView();
-            $.content.add(view);
             viewStack.push(view);
+            animateOn ? animateIn("right", view) : $.content.add(view);
         } else if ("close" == rightButtonStack[content.title].callbackType) {
-            $.content.remove(viewStack[viewStack.length - 1]);
+            animateOn ? animateOut("right", viewStack[viewStack.length - 1]) : $.content.remove(viewStack[viewStack.length - 1]);
             setNavBar(prevContent, leftButtonStack[prevContent.title], rightButtonStack[prevContent.title]);
             pageStack.pop();
             viewStack.pop();

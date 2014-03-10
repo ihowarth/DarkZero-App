@@ -6,7 +6,7 @@ var leftButtonStack = {};
 var rightButtonStack = {};
 
 exports.toggleAnimation = function(){
-    animationOn != animationOn;
+    animateOn != animateOn;
 };
 
 exports.editNavView = function(navBar){
@@ -40,11 +40,20 @@ $.leftNavButton.addEventListener('click', function(){
     if(leftButtonStack[content.title].callbackType == 'open'){
         //Add the new view on top and add it to the viewStack for removal later
         var view = Alloy.createController(leftButtonStack[content.title].callback).getView();
-        $.content.add(view);
+        
         viewStack.push(view);
+        
+        //If animation is true animate the view, otherwise just pop it on top
+        if(animateOn)
+        animateIn('left', view);
+        else
+        $.content.add(view);
     }
     else if(leftButtonStack[content.title].callbackType == 'close'){
-        //Remove view from navigation
+        //Remove view from navigation, animating if it is set to true
+        if(animateOn)
+        animateOut('left', viewStack[viewStack.length - 1]);
+        else
         $.content.remove(viewStack[viewStack.length - 1]);
         
         //Style buttons back to previous page
@@ -69,11 +78,20 @@ $.rightNavButton.addEventListener('click', function(){
     if(rightButtonStack[content.title].callbackType == 'open'){
         //Add the new view on top and add it to the viewStack for removal later
         var view = Alloy.createController(rightButtonStack[content.title].callback).getView();
+
+		viewStack.push(view);
+		
+		//If animation is true animate the view, otherwise just pop it on top
+        if(animateOn)
+        animateIn('right', view);
+        else
         $.content.add(view);
-        viewStack.push(view);
     }
     else if(rightButtonStack[content.title].callbackType == 'close'){
-        //Remove view from navigation
+        //Remove view from navigation, animating if it is set to true
+        if(animateOn)
+        animateOut('right', viewStack[viewStack.length - 1]);
+        else
         $.content.remove(viewStack[viewStack.length - 1]);
         
         //Style buttons back to previous page
@@ -108,9 +126,38 @@ function setNavBar(content, left, right){
 };
 
 function animateIn(direction, view){
+    if(direction == 'left')
+    view.right = APP.deviceWidth - 1;
+    else
+    view.left = APP.deviceWidth - 1;
     
+    $.content.add(view);
+    
+    if(direction == 'left'){
+    	view.animate({right: 0});
+    }else{
+   	    view.animate({left: 0});
+    }
 };
 
 function animateOut(direction, view){
+	var leftAnimation = Ti.UI.createAnimation({
+		left: APP.deviceWidth - 1
+	});
+	var rightAnimation = Ti.UI.createAnimation({
+		right: APP.deviceWidth - 1
+	});
+	
+	if(direction == 'left'){
+    	view.animate(leftAnimation);
+    }else{
+   	    view.animate(rightAnimation);
+    }
     
+    leftAnimation.addEventListener('complete', function(){
+    	$.content.remove(view);
+    });
+    rightAnimation.addEventListener('complete', function(){
+    	$.content.remove(view);
+    });
 };
