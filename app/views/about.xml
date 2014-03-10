@@ -5,8 +5,10 @@
 			<Label id='info'/>
 			<Label id='emailLink'/>
 			<Label id='follow'/>
-			<ImageView id='facebook'/>
-			<ImageView id='twitter'/>
+			<View id='socialContainer'>
+				<ImageView id='facebook'/>
+				<ImageView id='twitter'/>
+			</View>
 			<Label id='meet'/>
 			<TableView id='teamTable' dataCollection='team' dataTransform='addHeaders'>
 				<Require src='teamRow' id='row'/>

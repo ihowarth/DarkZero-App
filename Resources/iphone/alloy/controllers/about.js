@@ -98,14 +98,20 @@ function Controller() {
         id: "follow"
     });
     $.__views.aboutView.add($.__views.follow);
+    $.__views.socialContainer = Ti.UI.createView({
+        layout: "horizontal",
+        height: Ti.UI.SIZE,
+        id: "socialContainer"
+    });
+    $.__views.aboutView.add($.__views.socialContainer);
     $.__views.facebook = Ti.UI.createImageView({
         id: "facebook"
     });
-    $.__views.aboutView.add($.__views.facebook);
+    $.__views.socialContainer.add($.__views.facebook);
     $.__views.twitter = Ti.UI.createImageView({
         id: "twitter"
     });
-    $.__views.aboutView.add($.__views.twitter);
+    $.__views.socialContainer.add($.__views.twitter);
     $.__views.meet = Ti.UI.createLabel({
         text: "\n Meet the team",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
@@ -120,6 +126,7 @@ function Controller() {
         height: Ti.UI.SIZE,
         scrollable: false,
         separatorColor: "#ffffff",
+        allowsSelection: false,
         id: "teamTable"
     });
     $.__views.aboutView.add($.__views.teamTable);

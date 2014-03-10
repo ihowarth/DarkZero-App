@@ -20,35 +20,19 @@ function Controller() {
     });
     $.__views.container && $.addTopLevelView($.__views.container);
     $.__views.settingsView = Ti.UI.createView({
-        backgrounColor: "#ffffff",
+        backgroundColor: "#ffffff",
         width: 300,
         id: "settingsView"
     });
     $.__views.container.add($.__views.settingsView);
-    $.__views.pushNotificationsSwitch = Ti.UI.createSwitch({
-        right: 10,
-        top: 35,
-        value: false,
-        id: "pushNotificationsSwitch"
+    var __alloyId4 = [];
+    $.__views.notificationRow = Ti.UI.createTableViewRow({
+        height: 40,
+        id: "notificationRow"
     });
-    $.__views.settingsView.add($.__views.pushNotificationsSwitch);
-    $.__views.themeSwitch = Ti.UI.createSwitch({
-        right: 10,
-        top: 85,
-        value: false,
-        id: "themeSwitch"
-    });
-    $.__views.settingsView.add($.__views.themeSwitch);
-    $.__views.soundsSwitch = Ti.UI.createSwitch({
-        right: 10,
-        top: 135,
-        value: false,
-        id: "soundsSwitch"
-    });
-    $.__views.settingsView.add($.__views.soundsSwitch);
+    __alloyId4.push($.__views.notificationRow);
     $.__views.pushNotificationsLabel = Ti.UI.createLabel({
         left: 10,
-        top: 40,
         text: "Allow Push notifications",
         font: {
             fontSize: 12
@@ -56,10 +40,20 @@ function Controller() {
         color: "#707070",
         id: "pushNotificationsLabel"
     });
-    $.__views.settingsView.add($.__views.pushNotificationsLabel);
+    $.__views.notificationRow.add($.__views.pushNotificationsLabel);
+    $.__views.pushNotificationsSwitch = Ti.UI.createSwitch({
+        right: 10,
+        value: false,
+        id: "pushNotificationsSwitch"
+    });
+    $.__views.notificationRow.add($.__views.pushNotificationsSwitch);
+    $.__views.themeRow = Ti.UI.createTableViewRow({
+        height: 40,
+        id: "themeRow"
+    });
+    __alloyId4.push($.__views.themeRow);
     $.__views.themeLabel = Ti.UI.createLabel({
         left: 10,
-        top: 90,
         text: "Enable light theme",
         font: {
             fontSize: 12
@@ -67,10 +61,20 @@ function Controller() {
         color: "#707070",
         id: "themeLabel"
     });
-    $.__views.settingsView.add($.__views.themeLabel);
+    $.__views.themeRow.add($.__views.themeLabel);
+    $.__views.themeSwitch = Ti.UI.createSwitch({
+        right: 10,
+        value: false,
+        id: "themeSwitch"
+    });
+    $.__views.themeRow.add($.__views.themeSwitch);
+    $.__views.soundsRow = Ti.UI.createTableViewRow({
+        height: 40,
+        id: "soundsRow"
+    });
+    __alloyId4.push($.__views.soundsRow);
     $.__views.soundsLabel = Ti.UI.createLabel({
         left: 10,
-        top: 140,
         text: "Enable sounds",
         font: {
             fontSize: 12
@@ -78,7 +82,23 @@ function Controller() {
         color: "#707070",
         id: "soundsLabel"
     });
-    $.__views.settingsView.add($.__views.soundsLabel);
+    $.__views.soundsRow.add($.__views.soundsLabel);
+    $.__views.soundsSwitch = Ti.UI.createSwitch({
+        right: 10,
+        value: false,
+        id: "soundsSwitch"
+    });
+    $.__views.soundsRow.add($.__views.soundsSwitch);
+    $.__views.settingsTable = Ti.UI.createTableView({
+        top: 20,
+        height: Ti.UI.SIZE,
+        width: 300,
+        scrollable: false,
+        allowsSelection: false,
+        data: __alloyId4,
+        id: "settingsTable"
+    });
+    $.__views.settingsView.add($.__views.settingsTable);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};

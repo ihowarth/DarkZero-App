@@ -1,12 +1,20 @@
 <Alloy>
 	<View id='container'>
 		<View id='settingsView'>
-			<Switch id="pushNotificationsSwitch"/>
-			<Switch id="themeSwitch"/>
-			<Switch id="soundsSwitch"/>
-			<Label id='pushNotificationsLabel'/>
-			<Label id='themeLabel'/>
-			<Label id='soundsLabel'/>
+			<TableView id='settingsTable'>
+				<TableViewRow id='notificationRow'>
+					<Label id='pushNotificationsLabel'/>
+					<Switch id="pushNotificationsSwitch"/>
+				</TableViewRow>
+				<TableViewRow id='themeRow'>
+					<Label id='themeLabel'/>
+					<Switch id="themeSwitch"/>
+				</TableViewRow>
+				<TableViewRow id='soundsRow'>
+					<Label id='soundsLabel'/>
+					<Switch id="soundsSwitch"/>
+				</TableViewRow>
+			</TableView>
 		</View>
 	</View>
 </Alloy>
