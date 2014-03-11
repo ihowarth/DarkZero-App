@@ -3,21 +3,21 @@
 },
 '#settingsView' : {
 	backgroundColor: '#ffffff',
-	width: 300,
+	width: '100%',
 },
 
 
 '#settingsTable' : {
 	top: 20,
 	height: Ti.UI.SIZE,
-	width: 300,
+	width: '100%',
 	scrollable: false,
 	allowsSelection: false
 },
 
 
 '#notificationRow' : {
-	height: 40
+	height: 50
 },
 '#pushNotificationsLabel' : {
 	left: 10,
@@ -26,13 +26,12 @@
 	color: '#707070'
 },
 '#pushNotificationsSwitch' : {
-	right: 10,
-	value: false,
+	right: 10
 },
 
 
 '#themeRow' : {
-	height: 40
+	height: 50
 },
 '#themeLabel' : {
 	left: 10,
@@ -41,13 +40,12 @@
 	color: '#707070'
 },
 '#themeSwitch' : {
-	right: 10,
-	value: true
+	right: 10
 },
 
 
 '#soundsRow' : {
-	height: 40
+	height: 50
 },
 '#soundsLabel' : {
 	left: 10,
@@ -56,6 +54,5 @@
 	color: '#707070'
 },
 '#soundsSwitch' : {
-	right: 10,
-	value: true
+	right: 10
 }

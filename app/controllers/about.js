@@ -25,6 +25,14 @@ function addEventListeners(){
             }).open();
         }
     });
+    
+    $.facebook.addEventListener('click', function(){
+       alert('FACEBOOK'); 
+    });
+    
+    $.twitter.addEventListener('click', function(){
+       alert('twitter'); 
+    });
 };
 
 function addHeaders(model){
@@ -35,3 +43,4 @@ function addHeaders(model){
     transform.bio = 'Bio: ' + transform.bio;
     return transform;
 };
+

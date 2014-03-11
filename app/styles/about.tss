@@ -8,7 +8,7 @@
 
 
 '#logo' : {
-	//image: 'Logo.png'
+	image: 'Logo.png'
 },
 '#info' : {
 	text: 'We are based in both the UK and the US and welcome emails from readers, publishers, developers, advertisers and PR agencies. \n \n If you would like us to review your game, please just ask! We try to cover as many as we can.\n \n',
@@ -30,13 +30,20 @@
 
 '#socialContainer' : {
 	layout: 'horizontal',
-	height: Ti.UI.SIZE
+	top: 10,
+	height: Ti.UI.SIZE,
+	width: 130,
 },
 '#facebook' : {
-	//image: 'FaceBook Icon.jpeg'
+	width: 60,
+	height: 60,
+	image: 'FBIcon.png'
 },
 '#twitter' : {
-	//image: 'Twitter Icon.png'
+	left: 10,
+	width: 60,
+	height: 60,
+	image: 'TwitterIcon.png'
 },
 
 
