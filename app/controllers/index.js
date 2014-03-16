@@ -1,4 +1,4 @@
-function initNavigation() {
+function init() {
     //Set the first time to false, so we know the first time the app was run on the device
     APP.setFirstTimeFalse();
 
@@ -18,15 +18,15 @@ function initNavigation() {
         callbackType       : 'open',
         animationDirection : 'left'
     }, {
-        image        : '/Information.png',
-        callback     : '/about',
-        callbackType : 'open',
+        image              : '/Information.png',
+        callback           : '/about',
+        callbackType       : 'open',
         animationDirection : 'right'
     });
 
     //Content
     $.mainWin.add(Alloy.Globals.NavigationWidget.getView());
 };
-initNavigation();
+init();
 
-$.mainWin.open(); 
+$.mainWin.open();

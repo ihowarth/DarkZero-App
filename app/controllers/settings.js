@@ -23,13 +23,14 @@ function addEventListeners() {
        } else{
            
        }
+       alert(e.value);
     });
     
     $.themeSwitch.addEventListener('change', function(e) {
        if(e.value == true) {
            
        } else {
-           
        }
+       alert(e.value);
     });
 };

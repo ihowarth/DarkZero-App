@@ -14,7 +14,7 @@ function init() {
 init();
 
 function addEventListeners() {
-    $.emailLink.addEventListener('click', function() {
+    $.emailLink.addEventListener('touchend', function() {
         if (APP.checkNetwork()) {
             Ti.UI.createEmailDialog({
                 subject      : 'Message from DarkZero App',
@@ -30,12 +30,12 @@ function addEventListeners() {
         }
     });
 
-    $.facebook.addEventListener('click', function() {
-        alert('FACEBOOK');
+    $.facebook.addEventListener('touchend', function() {
+        alert('Facebook');
     });
 
-    $.twitter.addEventListener('click', function() {
-        alert('twitter');
+    $.twitter.addEventListener('touchend', function() {
+        alert('Twitter');
     });
 };
 
