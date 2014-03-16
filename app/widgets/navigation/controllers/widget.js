@@ -1,40 +1,28 @@
-var animateOn = true;
-
 var pageStack        = [];
 var viewStack        = [];
+
 var leftButtonStack  = {};
 var rightButtonStack = {};
 
-exports.chooseAnimation = function(value) {
-    animateOn = value;
-};
-
-exports.editNavView = function(navBar) {
-    $.navBar.height           = navBar.height          || 60;
-    $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
-    $.shadow.visible          = navBar.shadow          || true;
-    $.pageTitle.color         = navBar.titleColor      || '#000000';
-    $.pageTitle.font          = navBar.font            || {fontSize : 17};
-};
-
-exports.addNewView = function(content, left, right) {
+exports.addNewView = function(content, navBar, left, right) {
     //If there is a controller to open, do so and add it to the view
     if (content.controller) {
         var view = Alloy.createController(content.controller).getView();
-        $.content.add(view);
+        $.contentView.add(view);
         viewStack.push(view);
     }
 
-    //Style nav bar with buttons and a title
+    //Style nav bar, add buttons and a title
     //If title doesn't exist use previous title, if THAT doesn't exist, the label is empty
-    $.pageTitle.text = content.title || $.pageTitle.text || '';
+    $.pageTitle.text = navBar.title || $.pageTitle.text || '';
+    navBarSetup(navBar);
     navButtonSetup(left, 'left');
     navButtonSetup(right, 'right');
 
     //Add the JSON objects to stacks, to be used later on return to the page
-    pageStack.push(content);
-    leftButtonStack[content.title]  = left;
-    rightButtonStack[content.title] = right;
+    pageStack.push(navBar);
+    leftButtonStack[navBar.title]  = left;
+    rightButtonStack[navBar.title] = right;
 };
 
 $.leftNavButtonView.addEventListener('touchend', function() {
@@ -44,6 +32,14 @@ $.leftNavButtonView.addEventListener('touchend', function() {
 $.rightNavButtonView.addEventListener('touchend', function() {
     eventListener(rightButtonStack);
 });
+
+function navBarSetup(navBar) {
+    $.navBar.height           = navBar.height          || 60;
+    $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
+    $.shadow.visible          = navBar.shadow          || true;
+    $.pageTitle.color         = navBar.titleColor      || '#000000';
+    $.pageTitle.font          = navBar.font            || {fontSize : 17};
+};
 
 function navButtonSetup(button, side) {
     if (side == 'left') {
@@ -76,41 +72,43 @@ function navButtonSetup(button, side) {
 
 function eventListener(button) {
     //Save confusion by using some quick vars
-    var content     = pageStack[pageStack.length - 1];
-    var prevContent = pageStack[pageStack.length - 2];
+    var page     = pageStack[pageStack.length - 1];
+    var prevPage = pageStack[pageStack.length - 2];
 
-    if (button[content.title].callbackType == 'open') {
+    if (button[page.title].callbackType == 'open') {
         //Add the new view on top and add it to the viewStack for removal later
-        var view = Alloy.createController(button[content.title].callback).getView();
+        var view = Alloy.createController(button[page.title].callback).getView();
 
         viewStack.push(view);
 
         //If animation is true animate the view, otherwise just pop it on top
-        if (animateOn) {
-            animateIn(button[content.title].animationDirection, view);
+        if (button[page.title].animationOff) {
+            $.contentView.add(view);
         } else {
-            $.content.add(view);
+            animateIn(button[page.title].animationDirection, view);
         }
-    } else if (button[content.title].callbackType == 'close') {
-        //Style buttons back to previous page
-        $.pageTitle.text = prevContent.title || $.pageTitle.text || '';
-        navButtonSetup(leftButtonStack[prevContent.title], 'left');
-        navButtonSetup(rightButtonStack[prevContent.title], 'right');
+    } else if (button[page.title].callbackType == 'close') {
+        //Style nav bar and buttons back to previous page
+        $.pageTitle.text = prevPage.title || $.pageTitle.text || '';
+        navBarSetup(pageStack[pageStack.length - 1]);
+        navButtonSetup(leftButtonStack[prevPage.title], 'left');
+        navButtonSetup(rightButtonStack[prevPage.title], 'right');
 
         //Remove view from navigation, animating if it is set to true
-        if (animateOn) {
-            animateOut(button[content.title].animationDirection, viewStack[viewStack.length - 1]);
+        console.log(JSON.stringify(button[page.title]));
+        if (button[page.title].animationOff) {
+            $.contentView.remove(viewStack[viewStack.length - 1]);
         } else {
-            $.content.remove(viewStack[viewStack.length - 1]);
+            animateOut(button[page.title].animationDirection, viewStack[viewStack.length - 1]);
         }
 
         //Remove the elements that are closed
         pageStack.pop();
         viewStack.pop();
-        delete leftButtonStack[content.title];
-        delete rightButtonStack[content.title];
+        delete leftButtonStack[page.title];
+        delete rightButtonStack[page.title];
     } else {
-        button[content.title].callback();
+        button[page.title].callback();
     }
 
 };
@@ -133,7 +131,7 @@ function animateIn(direction, view) {
         animation.left = 0;
     }
 
-    $.content.add(view);
+    $.contentView.add(view);
 
     view.animate(animation);
 };
@@ -156,6 +154,6 @@ function animateOut(direction, view) {
     
     //Let the animation finish before the view is removed
     animation.addEventListener('complete', function() {
-        $.content.remove(view);
+        $.contentView.remove(view);
     });
 };

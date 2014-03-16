@@ -12,6 +12,6 @@
 			</View>
 			<View id='shadow'/> 
 		</View>
-		<View id='content'/>
+		<View id='contentView'/>
 	</View>
 </Alloy>

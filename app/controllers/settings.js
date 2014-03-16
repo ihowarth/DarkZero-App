@@ -2,8 +2,12 @@ var args = arguments[0] || {};
 
 function init() {
     Alloy.Globals.NavigationWidget.addNewView({
-        title : 'Settings'
-    }, {}, {
+        //No content needed
+    }, {
+        title              : 'Settings'
+    }, {
+        //No left button
+    }, {
         text               : 'Back',
         callbackType       : 'close',
         animationDirection : 'left'

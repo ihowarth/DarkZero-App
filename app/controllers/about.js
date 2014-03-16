@@ -2,12 +2,17 @@ var args = arguments[0] || {};
 
 function init() {
     Alloy.Globals.NavigationWidget.addNewView({
-        title : 'About'
+        //No content needed
+    }, {
+        title              : 'About'
     }, {
         text               : 'Back',
         callbackType       : 'close',
         animationDirection : 'right'
-    }, {});
+    }, {
+        //No right button
+    }); 
+
 
     addEventListeners();
 };
