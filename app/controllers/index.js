@@ -5,16 +5,29 @@ function init() {
     Alloy.Globals.NavigationWidget.addNewView({
         controller         : '/frontPage'
     },  {
-        title              : 'DarkZero'
+        //height             : 60,
+        //backgroundColor    : '#f0f0f0',
+        //shadowVisible      : true,
+        title              : 'DarkZero',
+        //titleColor         : '#000000',
+        //itleFont          : {fontSize : 17} 
     },  {
+        //text               : '',
+        //textColor          : '#007aff',
+        //textFont           : {fontSize : 15},
         image              : '/Settings.png',
         callback           : '/settings',
         callbackType       : 'open',
+        //animationOff       : false,
         animationDirection : 'left'
     }, {
+        //text               : '',
+        //textColor          : '#007aff',
+        //textFont           : {fontSize : 15},
         image              : '/Information.png',
         callback           : '/about',
         callbackType       : 'open',
+        //animationOff       : false,
         animationDirection : 'right'
     });
 

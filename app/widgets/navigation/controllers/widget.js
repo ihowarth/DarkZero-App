@@ -36,9 +36,9 @@ $.rightNavButtonView.addEventListener('touchend', function() {
 function navBarSetup(navBar) {
     $.navBar.height           = navBar.height          || 60;
     $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
-    $.shadow.visible          = navBar.shadow          || true;
+    $.shadow.visible          = navBar.shadowVisible   || true;
     $.pageTitle.color         = navBar.titleColor      || '#000000';
-    $.pageTitle.font          = navBar.font            || {fontSize : 17};
+    $.pageTitle.font          = navBar.titleFont            || {fontSize : 17};
 };
 
 function navButtonSetup(button, side) {
