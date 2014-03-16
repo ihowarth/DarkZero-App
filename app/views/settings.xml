@@ -10,10 +10,6 @@
 					<Label id='themeLabel'/>
 					<Switch id="themeSwitch"/>
 				</TableViewRow>
-				<TableViewRow id='soundsRow'>
-					<Label id='soundsLabel'/>
-					<Switch id="soundsSwitch"/>
-				</TableViewRow>
 			</TableView>
 		</View>
 	</View>

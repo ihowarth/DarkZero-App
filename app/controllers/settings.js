@@ -1,12 +1,35 @@
 var args = arguments[0] || {};
 
-function init(){
-    Alloy.Globals.NavigationWidget.addNewView({title:'Settings'},
-                                              {},
-                                              {image:'Information.png', callbackType:'close'});
-                 
+function init() {
+    Alloy.Globals.NavigationWidget.addNewView({
+        title : 'Settings'
+    }, {}, {
+        text               : 'Back',
+        callbackType       : 'close',
+        animationDirection : 'left'
+    });
+
     //Has to be done after rendering due to an issue where the value isn't used
     $.themeSwitch.value = true;
-    $.soundsSwitch.value = true;                                               
+    
+    addEventListeners();
 };
-init();
+init(); 
+
+function addEventListeners() {
+    $.pushNotificationsSwitch.addEventListener('change', function(e){
+       if(e.value == true) {
+           
+       } else{
+           
+       }
+    });
+    
+    $.themeSwitch.addEventListener('change', function(e) {
+       if(e.value == true) {
+           
+       } else {
+           
+       }
+    });
+};

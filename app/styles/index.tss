@@ -1,4 +1,5 @@
 "#mainWin": {
-	backgroundColor:"#ffffff",
-	layout: 'vertical'
+	backgroundColor : "#ffffff",
+	layout          : 'vertical',
+	navBarHidden    : true
 }

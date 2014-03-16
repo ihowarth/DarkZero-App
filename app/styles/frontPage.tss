@@ -1,9 +1,9 @@
 '#mainView' : {
-	backgroundColor: '#ffffff',
+	backgroundColor : '#ffffff',
 },
 '#reviewTable' : {
-	height: 350,
-	width: 300,
-	bottom: 0,
-	separatorInsets: {right: 0, left: 0}
+	height          : 350,
+	width           : 300,
+	bottom          : 0,
+	separatorInsets : {right : 0, left : 0}
 }

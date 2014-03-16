@@ -2,8 +2,14 @@
 	<View id='container'>
 		<View id='navBar'>
 			<Label id='pageTitle'/>
-			<ImageView id='leftNavButton'/>
-			<ImageView id='rightNavButton'/>
+			<View id='leftNavButtonView'>
+				<ImageView id='leftNavButtonImage'/>
+				<Label id='leftNavButtonLabel'/>
+			</View>
+			<View id='rightNavButtonView'>
+				<Label id='rightNavButtonLabel'/>
+				<ImageView id='rightNavButtonImage'/>
+			</View>
 			<View id='shadow'/> 
 		</View>
 		<View id='content'/>

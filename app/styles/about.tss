@@ -1,63 +1,63 @@
 '#container' : {
-	backgroundColor: '#ffffff'
+	backgroundColor : '#ffffff'
 },
 '#aboutView' : {
-	width: 300,
-	layout: 'vertical'
+	width  : 300,
+	layout : 'vertical'
 },
 
 
 '#logo' : {
-	image: 'Logo.png'
+	image : '/Logo.png'
 },
 '#info' : {
-	text: 'We are based in both the UK and the US and welcome emails from readers, publishers, developers, advertisers and PR agencies. \n \n If you would like us to review your game, please just ask! We try to cover as many as we can.\n \n',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {fontSize: 9}
+	text      : 'We are based in both the UK and the US and welcome emails from readers, publishers, developers, advertisers and PR agencies. \n \n If you would like us to review your game, please just ask! We try to cover as many as we can.\n \n',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font      : {fontSize: 9}
 },
 '#emailLink' : {
-	text: 'team@darkzero.co.uk',
-	color: 'blue',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {fontSize: 9}
+	text      : 'team@darkzero.co.uk',
+	color     : 'blue',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font      : {fontSize: 9}
 },
 '#follow' : {
-	text: '\n Follow us!',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {fontSize: 10}
+	text      : '\n Follow us!',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font      : {fontSize: 10}
 },
 
 
 '#socialContainer' : {
-	layout: 'horizontal',
-	top: 10,
-	height: Ti.UI.SIZE,
-	width: 130,
+	layout : 'horizontal',
+	top    : 10,
+	height : Ti.UI.SIZE,
+	width  : 130,
 },
 '#facebook' : {
-	width: 60,
-	height: 60,
-	image: 'FBIcon.png'
+	width  : 60,
+	height : 60,
+	image  : '/FBIcon.png'
 },
 '#twitter' : {
-	left: 10,
-	width: 60,
-	height: 60,
-	image: 'TwitterIcon.png'
+	left   : 10,
+	width  : 60,
+	height : 60,
+	image  : '/TwitterIcon.png'
 },
 
 
 '#meet' : {
-	text: '\n Meet the team',
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {fontSize: 9}	
+	text      : '\n Meet the team',
+	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font      : {fontSize: 9}	
 },
 
 
 '#teamTable' : {
 	top: 10,
-	height: Ti.UI.SIZE,
-	scrollable: false,
-	separatorColor: '#ffffff',
-	allowsSelection: false
+	height          : Ti.UI.SIZE,
+	scrollable      : false,
+	separatorColor  : '#ffffff',
+	allowsSelection : false
 }

@@ -1,38 +1,38 @@
 '#row' : {
-	top: 10,
-	height: Ti.UI.SIZE,
-	backgroundColor: '#ffffff',
+	top             : 10,
+	height          : Ti.UI.SIZE,
+	backgroundColor : '#ffffff',
 },
 
 
 '#image' : {
-	top:10,
-	left: 0,
-	width: 75,
-	height: 75
+	top    :10,
+	left   : 0,
+	width  : 75,
+	height : 75
 },
 
 '#labelContainer' : {
-	height: Ti.UI.SIZE,
-	layout: 'vertical'
+	height : Ti.UI.SIZE,
+	layout : 'vertical'
 },
 '#name' : {
-	top: 5,
-	left: 100,
-	font: {fontSize: 9}
+	top  : 5,
+	left : 100,
+	font : {fontSize : 9}
 },
 '#occupation' : {
-	top: 5,
-	left: 100,
-	font: {fontSize: 9}
+	top  : 5,
+	left : 100,
+	font : {fontSize : 9}
 },
 '#favouriteGames' : {
-	top: 5,
-	left: 100,
-	font: {fontSize: 9}
+	top  : 5,
+	left : 100,
+	font : {fontSize : 9}
 },
 '#bio' : {
-	top: 5,
-	left: 100,
-	font: {fontSize: 9}
+	top  : 5,
+	left : 100,
+	font : {fontSize : 9}
 }

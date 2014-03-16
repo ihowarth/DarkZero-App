@@ -1,35 +1,62 @@
 '#container' : {
-	layout: 'vertical'
+	layout : 'vertical'
 },
 
-//NavBar
+
 '#navBar' : {
-	height: 60,
-	backgroundColor: '#f0f0f0'
+	height          : 60,
+	backgroundColor : '#f0f0f0'
 },
 '#pageTitle' : {
-	bottom: 10,
-	color: '#000000'
-},
-'#leftNavButton' : {
-	left: 10,
-	bottom: 10,
-	height: 20,
-	width: 20
-},
-'#rightNavButton' : {
-	right: 10,
-	bottom: 10,
-	height: 20,
-	width: 20
-},
-'#shadow' : {
-	bottom: 0,
-	height: 1,
-	backgroundColor: '#909090'
+	bottom : 10,
+	font   : {fontSize : 19},
+	color  : '#000000'
 },
 
-//ContentView
+
+'#leftNavButtonView' : {
+	left   : 10,
+	bottom : 10,
+	height : Ti.UI.SIZE,
+	width  : Ti.UI.SIZE,
+	layout : 'horizontal'
+},
+'#leftNavButtonImage' : {
+	height : Ti.UI.SIZE,
+	width  : Ti.UI.SIZE
+},
+'#leftNavButtonLabel' : {
+	height  : 20,
+	width   : Ti.UI.SIZE,
+	font    : {fontSize : 15},
+	color   : '#007aff'
+},
+
+'#rightNavButtonView' : {
+	right  : 10,
+	bottom : 10,
+	height : Ti.UI.SIZE,
+	width  : Ti.UI.SIZE,
+	layout : 'horizontal'
+},
+'#rightNavButtonLabel' : {
+	height  : 20,
+	width   : Ti.UI.SIZE,
+	font    : {fontSize : 15},
+	color   : '#007aff'
+},
+'#rightNavButtonImage' : {
+	height : Ti.UI.SIZE,
+	width  : Ti.UI.SIZE
+},
+
+
+'#shadow' : {
+	bottom          : 0,
+	height          : 1,
+	backgroundColor : '#909090'
+},
+
+
 '#content' : {
-	
 }
