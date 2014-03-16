@@ -4,7 +4,7 @@ var viewStack        = [];
 var leftButtonStack  = {};
 var rightButtonStack = {};
 
-exports.addNewView = function(content, navBar, left, right) {
+exports.addNewView = function(content, navBar, leftButton, rightButton) {
     //If there is a controller to open, do so and add it to the view
     if (content.controller) {
         var view = Alloy.createController(content.controller).getView();
@@ -16,13 +16,13 @@ exports.addNewView = function(content, navBar, left, right) {
     //If title doesn't exist use previous title, if THAT doesn't exist, the label is empty
     $.pageTitle.text = navBar.title || $.pageTitle.text || '';
     navBarSetup(navBar);
-    navButtonSetup(left, 'left');
-    navButtonSetup(right, 'right');
+    navButtonSetup(leftButton, 'left');
+    navButtonSetup(rightButton, 'right');
 
     //Add the JSON objects to stacks, to be used later on return to the page
     pageStack.push(navBar);
-    leftButtonStack[navBar.title]  = left;
-    rightButtonStack[navBar.title] = right;
+    leftButtonStack[navBar.title]  = leftButton;
+    rightButtonStack[navBar.title] = rightButton;
 };
 
 $.leftNavButtonView.addEventListener('touchend', function() {
@@ -95,7 +95,6 @@ function eventListener(button) {
         navButtonSetup(rightButtonStack[prevPage.title], 'right');
 
         //Remove view from navigation, animating if it is set to true
-        console.log(JSON.stringify(button[page.title]));
         if (button[page.title].animationOff) {
             $.contentView.remove(viewStack[viewStack.length - 1]);
         } else {
@@ -108,7 +107,7 @@ function eventListener(button) {
         delete leftButtonStack[page.title];
         delete rightButtonStack[page.title];
     } else {
-        button[page.title].callback();
+        button[page.title].callback && button[page.title].callback();
     }
 
 };
@@ -120,15 +119,15 @@ function animateIn(direction, view) {
     if (direction == 'left') {
         view.right      = APP.deviceWidth - 1;
         animation.right = 0;
-    } else if (direction == 'up') {
-        view.top      = APP.deviceHeight - ($.navBar.height + 1);
-        animation.top = 0;
+    } else if (direction == 'right') {
+        view.left      = APP.deviceWidth - 1;
+        animation.left = 0;
     } else if (direction == 'down') {
         view.bottom      = APP.deviceHeight - ($.navBar.height + 1);
         animation.bottom = 0;
     } else {
-        view.left      = APP.deviceWidth - 1;
-        animation.left = 0;
+        view.top      = APP.deviceHeight - ($.navBar.height + 1);
+        animation.top = 0;      
     }
 
     $.contentView.add(view);
@@ -142,12 +141,12 @@ function animateOut(direction, view) {
     //Change the animation to slide-out the view the opposite way the the view slid in
     if (direction == 'left') {
         animation.right = APP.deviceWidth - 1;    
-    } else if (direction == 'up') {
-        animation.top = APP.deviceHeight - ($.navBar.height + 1);
+    } else if (direction == 'right') {
+        animation.left = APP.deviceWidth - 1;
     } else if (direction == 'down') {
         animation.bottom = APP.deviceHeight - ($.navBar.height + 1);
     } else {
-        animation.left = APP.deviceWidth - 1;
+        animation.top = APP.deviceHeight - ($.navBar.height + 1);
     }
 
     view.animate(animation);
