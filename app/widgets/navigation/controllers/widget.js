@@ -5,15 +5,16 @@ var viewStack        = [];
 var leftButtonStack  = {};
 var rightButtonStack = {};
 
-exports.toggleAnimation = function() {
-    animateOn != animateOn;
+exports.chooseAnimation = function(value) {
+    animateOn = value;
 };
 
 exports.editNavView = function(navBar) {
-    $.navBar.height          = navBar.height          || 60;
-    $.navBar.backgroundColor = navBar.backgroundColor || '#f0f0f0';
-    $.shadow.visible         = navBar.shadow          || true;
-    $.pageTitle.color        = navBar.titleColor      || '#000000';
+    $.navBar.height           = navBar.height          || 60;
+    $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
+    $.shadow.visible          = navBar.shadow          || true;
+    $.pageTitle.color         = navBar.titleColor      || '#000000';
+    $.pageTitle.font          = navBar.font            || {fontSize : 17};
 };
 
 exports.addNewView = function(content, left, right) {
@@ -61,6 +62,7 @@ function navButtonSetup(button, side) {
     if (button.text) {
         label.text    = button.text;
         label.color   = button.textColor || '#007aff';
+        label.font    = button.textFont  || {fontSize : 15};
         label.visible = true;
         view.visible  = true;
     } else if (button.image) {

@@ -9,7 +9,7 @@
 },
 '#pageTitle' : {
 	bottom : 10,
-	font   : {fontSize : 19},
+	font   : {fontSize : 17},
 	color  : '#000000'
 },
 
