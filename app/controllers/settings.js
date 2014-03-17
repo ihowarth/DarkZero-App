@@ -40,10 +40,14 @@ function addEventListeners() {
        } else {
            Ti.App.Properties.setString('theme', 'dark');
        }
-       //Calls function from index.js
+       
        APP.changeTheme();
+       
        //Page is already open so needs to be changed from here
        changeSettingsTheme();
+       
+       Alloy.Globals.changeIndexTheme();
+       Alloy.Globals.changeFrontPageTheme();
     });
 };
 

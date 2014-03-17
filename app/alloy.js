@@ -17,10 +17,9 @@ var debug = false;
 Alloy.Globals.NavigationWidget = Alloy.createWidget('navigation');
 
 //Libs
-Alloy.Globals.darkZeroLib = require('darkZero');
+Alloy.Globals.darkZeroTeamLib = require('darkZeroTeam');
 
 //Collections
-Alloy.Collections.team = Alloy.createCollection('team');
 
 var APP = {
     //Device Info
@@ -54,9 +53,6 @@ var APP = {
             backgroundColor    : Alloy.Globals.colors.navBarBackground,
             titleColor         : Alloy.Globals.colors.navBarTitle,
         });
-                
-        //Change index & Frontpage theme
-        //$.mainWin.statusBarStyle = Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK;
     },   
 }; 
 

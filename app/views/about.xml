@@ -10,9 +10,7 @@
 				<ImageView id='twitter'/>
 			</View>
 			<Label id='meet'/>
-			<!--<TableView id='teamTable' dataCollection='team' dataTransform='addHeaders'>
-				<Require src='teamRow' id='row'/>
-			</TableView>-->
+			<TableView id='teamTable'/>
 		</ScrollView>
 	</View>
 </Alloy>
