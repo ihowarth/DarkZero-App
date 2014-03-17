@@ -10,7 +10,7 @@ function init() {
         //shadowVisible      : true,
         title              : 'DarkZero',
         //titleColor         : '#000000',
-        //itleFont          : {fontSize : 17} 
+        //titleFont          : {fontSize : 17} 
     },  {
         //text               : '',
         //textColor          : '#007aff',

@@ -1,18 +1,14 @@
 '#container' : {
-	backgroundColor : '#ffffff',
-},
-'#settingsView' : {
-	backgroundColor : '#ffffff',
-	width           : '100%',
-},
-
+	backgroundColor : 'blue',
+}
 
 '#settingsTable' : {
 	top             : 20,
 	height          : Ti.UI.SIZE,
 	width           : '100%',
 	scrollable      : false,
-	allowsSelection : false
+	allowsSelection : false,
+	separatorColor  : '#909090'
 },
 
 

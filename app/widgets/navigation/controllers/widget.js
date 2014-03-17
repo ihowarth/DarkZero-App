@@ -38,7 +38,7 @@ function navBarSetup(navBar) {
     $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
     $.shadow.visible          = navBar.shadowVisible   || true;
     $.pageTitle.color         = navBar.titleColor      || '#000000';
-    $.pageTitle.font          = navBar.titleFont            || {fontSize : 17};
+    $.pageTitle.font          = navBar.titleFont       || {fontSize : 17};
 };
 
 function navButtonSetup(button, side) {
@@ -78,12 +78,14 @@ function eventListener(button) {
     if (button[page.title].callbackType == 'open') {
         //Add the new view on top and add it to the viewStack for removal later
         var view = Alloy.createController(button[page.title].callback).getView();
-
+        view.visible = false;
+        
         viewStack.push(view);
 
         //If animation is true animate the view, otherwise just pop it on top
         if (button[page.title].animationOff) {
             $.contentView.add(view);
+            view.visible = true;
         } else {
             animateIn(button[page.title].animationDirection, view);
         }
@@ -112,45 +114,55 @@ function eventListener(button) {
 
 };
 
-function animateIn(direction, view) {
-    var animation = Ti.UI.createAnimation();
-
+function animateIn(direction, view) {    
+    var animation = Ti.UI.createAnimation({
+        top       : 0,
+        bottom    : 0,
+        left      : 0,
+        right     : 0
+    });
+    
+    $.contentView.add(view);
+    
     //Change the animation depending on the selected direction of slide-in
     if (direction == 'left') {
-        view.right      = APP.deviceWidth - 1;
-        animation.right = 0;
+        view.left      = -view.size.width - 1;
+        view.right     = view.size.width - 1;
     } else if (direction == 'right') {
-        view.left      = APP.deviceWidth - 1;
-        animation.left = 0;
+        view.left      = view.size.width - 1;
+        view.right     = -view.size.width - 1;
     } else if (direction == 'down') {
-        view.bottom      = APP.deviceHeight - ($.navBar.height + 1);
-        animation.bottom = 0;
+        view.top       = -view.size.height - 1;
+        view.bottom    = view.size.height - 1;
     } else {
-        view.top      = APP.deviceHeight - ($.navBar.height + 1);
-        animation.top = 0;      
+        view.top       = view.size.height - 1;
+        view.bottom    = -view.size.height - 1;
     }
-
-    $.contentView.add(view);
-
+    
+    view.visible = true;
     view.animate(animation);
 };
 
 function animateOut(direction, view) {
     var animation = Ti.UI.createAnimation();
-    
+   
     //Change the animation to slide-out the view the opposite way the the view slid in
     if (direction == 'left') {
-        animation.right = APP.deviceWidth - 1;    
+        animation.left   = -view.size.width;
+        animation.right  = view.size.width;
     } else if (direction == 'right') {
-        animation.left = APP.deviceWidth - 1;
+        animation.right  = -view.size.width;
+        animation.left   = view.size.width;
     } else if (direction == 'down') {
-        animation.bottom = APP.deviceHeight - ($.navBar.height + 1);
+        animation.bottom = -view.size.height;
+        animation.top    = view.size.height;
     } else {
-        animation.top = APP.deviceHeight - ($.navBar.height + 1);
+        animation.top    = -view.size.height;
+        animation.bottom = view.size.height;
     }
-
-    view.animate(animation);
     
+    view.animate(animation);
+
     //Let the animation finish before the view is removed
     animation.addEventListener('complete', function() {
         $.contentView.remove(view);
