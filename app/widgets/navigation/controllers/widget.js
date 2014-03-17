@@ -5,6 +5,8 @@ var controllerStack  = [];
 var leftButtonStack  = {};
 var rightButtonStack = {};
 
+//TODO: don't let buttons be clicked when animating
+
 exports.addNewView = function(content, navBar, leftButton, rightButton) {
     //If there is a controller to open, do so and add it to the view
     if (content.controller) {
@@ -113,12 +115,6 @@ function eventListener(button) {
         viewStack.pop();
         delete leftButtonStack[page.title];
         delete rightButtonStack[page.title];
-        
-        console.log(controllerStack);
-        console.log(pageStack);
-        console.log(viewStack);
-        console.log(leftButtonStack);
-        console.log(rightButtonStack);
     } else {
         button[page.title].callback && button[page.title].callback();
     }
@@ -155,7 +151,7 @@ function animateIn(direction, view) {
 };
 
 function animateOut(direction, view) {
-    var animation = Ti.UI.createAnimation();
+    var animation = Ti.UI.createAnimation({duration: 5000});
    
     //Change the animation to slide-out the view the opposite way the the view slid in
     if (direction == 'left') {
