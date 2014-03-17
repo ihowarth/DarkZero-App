@@ -8,7 +8,7 @@ function init() {
     }, {
         text               : 'Back',
         callbackType       : 'close',
-        animationDirection : 'up'
+        animationDirection : 'right'
     }, {
         //No right button
     }); 

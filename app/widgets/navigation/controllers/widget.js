@@ -5,7 +5,13 @@ var controllerStack  = [];
 var leftButtonStack  = {};
 var rightButtonStack = {};
 
-//TODO: don't let buttons be clicked when animating
+exports.editNavView = function(navBar) {
+    $.navBar.height           = navBar.height          || 60;
+    $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
+    $.shadow.visible          = navBar.shadowVisible   || true;
+    $.pageTitle.color         = navBar.titleColor      || '#000000';
+    $.pageTitle.font          = navBar.titleFont       || {fontSize : 17};
+};
 
 exports.addNewView = function(content, navBar, leftButton, rightButton) {
     //If there is a controller to open, do so and add it to the view
@@ -20,7 +26,6 @@ exports.addNewView = function(content, navBar, leftButton, rightButton) {
     //Style nav bar, add buttons and a title
     //If title doesn't exist use previous title, if THAT doesn't exist, the label is empty
     $.pageTitle.text = navBar.title || $.pageTitle.text || '';
-    navBarSetup(navBar);
     navButtonSetup(leftButton, 'left');
     navButtonSetup(rightButton, 'right');
 
@@ -46,13 +51,7 @@ $.rightNavButtonView.addEventListener('touchend', function() {
     }
 });
 
-function navBarSetup(navBar) {
-    $.navBar.height           = navBar.height          || 60;
-    $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
-    $.shadow.visible          = navBar.shadowVisible   || true;
-    $.pageTitle.color         = navBar.titleColor      || '#000000';
-    $.pageTitle.font          = navBar.titleFont       || {fontSize : 17};
-};
+
 
 function navButtonSetup(button, side) {
     if (side == 'left') {
@@ -108,7 +107,6 @@ function eventListener(button) {
     } else if (button[page.title].callbackType == 'close') {
         //Style nav bar and buttons back to previous page
         $.pageTitle.text = prevPage.title || $.pageTitle.text || '';
-        navBarSetup(pageStack[pageStack.length - 1]);
         navButtonSetup(leftButtonStack[prevPage.title], 'left');
         navButtonSetup(rightButtonStack[prevPage.title], 'right');
 
@@ -134,6 +132,8 @@ function eventListener(button) {
 };
 
 function animateIn(direction, view) {    
+    $.contentView.add(view);
+    
     var animation = Ti.UI.createAnimation({
         top       : 0,
         bottom    : 0,
@@ -142,26 +142,28 @@ function animateIn(direction, view) {
         duration  : 300
     });
     
-    $.contentView.add(view);
+    //-1 because 1 pixel needs to be on screen to animate iOS
+    var width  = view.size.width - 1;
+    var height = view.size.height - 1;
     
     //Change the animation depending on the selected direction of slide-in
     if (direction == 'left') {
-        view.left      = -view.size.width - 1;
-        view.right     = view.size.width - 1;
+        view.left      = -width;
+        view.right     = width;
     } else if (direction == 'right') {
-        view.left      = view.size.width - 1;
-        view.right     = -view.size.width - 1;
+        view.left      = width;
+        view.right     = -width;
     } else if (direction == 'down') {
-        view.top       = -view.size.height - 1;
-        view.bottom    = view.size.height - 1;
+        view.top       = -height;
+        view.bottom    = height;
     } else {
-        view.top       = view.size.height - 1;
-        view.bottom    = -view.size.height - 1;
+        view.top       = height;
+        view.bottom    = -height;
     }
     
     view.visible = true;
     view.animate(animation);
-    
+
     animation.addEventListener('complete', function() {
         $.leftNavButtonView.touchEnabled = true;
         $.rightNavButtonView.touchEnabled = true;

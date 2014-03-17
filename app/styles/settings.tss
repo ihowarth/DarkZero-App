@@ -1,5 +1,5 @@
 '#container' : {
-	backgroundColor : 'blue',
+	backgroundColor : Alloy.Globals.colors.background
 }
 
 '#settingsTable' : {
@@ -8,18 +8,19 @@
 	width           : '100%',
 	scrollable      : false,
 	allowsSelection : false,
-	separatorColor  : '#909090'
+	separatorColor  : Alloy.Globals.colors.tableSeparator
 },
 
 
-'#notificationRow' : {
-	height : 50
+'#notificationsRow' : {
+	height : 50,
+	backgroundColor : Alloy.Globals.colors.tableBackground
 },
 '#pushNotificationsLabel' : {
 	left  : 10,
 	text  : 'Allow Push notifications',
 	font  : {fontSize : 12},
-	color : '#707070'
+	color : Alloy.Globals.colors.normalText
 },
 '#pushNotificationsSwitch' : {
 	right : 10
@@ -27,13 +28,14 @@
 
 
 '#themeRow' : {
-	height : 50
+	height : 50,
+	backgroundColor : Alloy.Globals.colors.tableBackground
 },
 '#themeLabel' : {
 	left  : 10,
 	text  : 'Enable light theme',
 	font  : {fontSize : 12},
-	color : '#707070'
+	color : Alloy.Globals.colors.normalText
 },
 '#themeSwitch' : {
 	right : 10

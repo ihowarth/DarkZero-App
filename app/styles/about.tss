@@ -1,5 +1,5 @@
 '#container' : {
-	backgroundColor : 'red'
+	backgroundColor : Alloy.Globals.colors.background
 },
 '#aboutView' : {
 	width  : 300,
@@ -13,18 +13,20 @@
 '#info' : {
 	text      : 'We are based in both the UK and the US and welcome emails from readers, publishers, developers, advertisers and PR agencies. \n \n If you would like us to review your game, please just ask! We try to cover as many as we can.\n \n',
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font      : {fontSize: 9}
+	font      : {fontSize: 9},
+	color     : Alloy.Globals.colors.normalText
 },
 '#emailLink' : {
 	text      : 'team@darkzero.co.uk',
-	color     : 'blue',
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font      : {fontSize: 9}
+	font      : {fontSize: 9},
+	color     : Alloy.Globals.colors.highlightText,
 },
 '#follow' : {
 	text      : '\n Follow us!',
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font      : {fontSize: 10}
+	font      : {fontSize: 10},
+	color     : Alloy.Globals.colors.normalText
 },
 
 
@@ -50,7 +52,8 @@
 '#meet' : {
 	text      : '\n Meet the team',
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font      : {fontSize: 9}	
+	font      : {fontSize: 9},
+	color     : Alloy.Globals.colors.normalText
 },
 
 

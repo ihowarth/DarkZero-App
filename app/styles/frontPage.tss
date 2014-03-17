@@ -1,9 +1,11 @@
 '#mainView' : {
-	backgroundColor : '#ffffff',
+	backgroundColor : Alloy.Globals.colors.background
 },
 '#reviewTable' : {
 	height          : 350,
 	width           : 300,
 	bottom          : 0,
-	separatorInsets : {right : 0, left : 0}
+	separatorInsets : {right : 0, left : 0},
+	separatorColor  : Alloy.Globals.colors.tableSeparator,
+	backgroundColor : Alloy.Globals.colors.tableBackground
 }

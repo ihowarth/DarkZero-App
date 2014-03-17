@@ -1,7 +1,7 @@
 <Alloy>
 	<View id='container'>
 		<TableView id='settingsTable'>
-			<TableViewRow id='notificationRow'>
+			<TableViewRow id='notificationsRow'>
 				<Label id='pushNotificationsLabel'/>
 				<Switch id="pushNotificationsSwitch"/>
 			</TableViewRow>

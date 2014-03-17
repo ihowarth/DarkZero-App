@@ -10,11 +10,15 @@ function init() {
     }, {
         text               : 'Back',
         callbackType       : 'close',
-        animationDirection : 'down'
+        animationDirection : 'left'
     });
 
     //Has to be done after rendering due to an issue where the value isn't used
-    $.themeSwitch.value = true;
+    if(Ti.App.Properties.getString('theme', 'light') == 'light') {
+        $.themeSwitch.value = true;
+    } else {
+        $.themeSwitch.value = false;
+    }
     
     addEventListeners();
 };
@@ -32,9 +36,24 @@ function addEventListeners() {
     
     $.themeSwitch.addEventListener('change', function(e) {
        if(e.value == true) {
-           
+           Ti.App.Properties.setString('theme', 'light');
        } else {
+           Ti.App.Properties.setString('theme', 'dark');
        }
-       alert(e.value);
+       //Calls function from index.js
+       APP.changeTheme();
+       //Page is already open so needs to be changed from here
+       changeSettingsTheme();
     });
+};
+
+function changeSettingsTheme() {
+    $.container.backgroundColor     = Alloy.Globals.colors.background;
+    
+    $.pushNotificationsLabel.color  = Alloy.Globals.colors.normalText;
+    $.themeLabel.color              = Alloy.Globals.colors.normalText;
+    
+    $.themeRow.backgroundColor = Alloy.Globals.colors.tableBackground;
+    $.notificationsRow.backgroundColor = Alloy.Globals.colors.tableBackground;
+    $.settingsTable.separatorColor  = Alloy.Globals.colors.tableSeparator;
 };

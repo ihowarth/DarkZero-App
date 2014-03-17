@@ -1,5 +1,6 @@
 "#mainWin": {
-	backgroundColor : "#ffffff",
+	backgroundColor : Alloy.Globals.colors.background,
 	layout          : 'vertical',
-	navBarHidden    : true
+	navBarHidden    : true,
+	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
 }
