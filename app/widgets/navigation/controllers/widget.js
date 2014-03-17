@@ -1,5 +1,6 @@
 var pageStack        = [];
 var viewStack        = [];
+var controllerStack  = [];
 
 var leftButtonStack  = {};
 var rightButtonStack = {};
@@ -7,9 +8,11 @@ var rightButtonStack = {};
 exports.addNewView = function(content, navBar, leftButton, rightButton) {
     //If there is a controller to open, do so and add it to the view
     if (content.controller) {
-        var view = Alloy.createController(content.controller).getView();
+        var controller = Alloy.createController(content.controller);
+        var view = controller.getView();
         $.contentView.add(view);
         viewStack.push(view);
+        controllerStack.push(controller);
     }
 
     //Style nav bar, add buttons and a title
@@ -77,16 +80,16 @@ function eventListener(button) {
 
     if (button[page.title].callbackType == 'open') {
         //Add the new view on top and add it to the viewStack for removal later
-        var view = Alloy.createController(button[page.title].callback).getView();
-        view.visible = false;
-        
+        var controller = Alloy.createController(button[page.title].callback);
+        var view = controller.getView();
         viewStack.push(view);
+        controllerStack.push(controller);
 
         //If animation is true animate the view, otherwise just pop it on top
         if (button[page.title].animationOff) {
             $.contentView.add(view);
-            view.visible = true;
         } else {
+        	view.visible = false;
             animateIn(button[page.title].animationDirection, view);
         }
     } else if (button[page.title].callbackType == 'close') {
@@ -102,16 +105,23 @@ function eventListener(button) {
         } else {
             animateOut(button[page.title].animationDirection, viewStack[viewStack.length - 1]);
         }
-
+		 
         //Remove the elements that are closed
+        controllerStack[controllerStack.length - 1].destroy();
+        controllerStack.pop();
         pageStack.pop();
         viewStack.pop();
         delete leftButtonStack[page.title];
         delete rightButtonStack[page.title];
+        
+        console.log(controllerStack);
+        console.log(pageStack);
+        console.log(viewStack);
+        console.log(leftButtonStack);
+        console.log(rightButtonStack);
     } else {
         button[page.title].callback && button[page.title].callback();
     }
-
 };
 
 function animateIn(direction, view) {    
@@ -140,6 +150,7 @@ function animateIn(direction, view) {
     }
     
     view.visible = true;
+    
     view.animate(animation);
 };
 

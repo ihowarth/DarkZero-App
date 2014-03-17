@@ -1,5 +1,5 @@
 '#container' : {
-	backgroundColor : 'red'
+	backgroundColor : '#ffffff'
 },
 '#aboutView' : {
 	width  : 300,
