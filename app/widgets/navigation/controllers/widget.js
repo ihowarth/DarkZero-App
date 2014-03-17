@@ -31,11 +31,19 @@ exports.addNewView = function(content, navBar, leftButton, rightButton) {
 };
 
 $.leftNavButtonView.addEventListener('touchend', function() {
-    eventListener(leftButtonStack);
+    if($.leftNavButtonView.touchEnabled == true){
+        $.leftNavButtonView.touchEnabled = false;
+        $.rightNavButtonView.touchEnabled = false;
+        eventListener(leftButtonStack);
+    }
 });
 
 $.rightNavButtonView.addEventListener('touchend', function() {
-    eventListener(rightButtonStack);
+    if($.rightNavButtonView.touchEnabled == true){
+        $.rightNavButtonView.touchEnabled = false;
+        $.leftNavButtonView.touchEnabled = false;
+        eventListener(rightButtonStack);
+    }
 });
 
 function navBarSetup(navBar) {
@@ -90,10 +98,13 @@ function eventListener(button) {
         //If animation is true animate the view, otherwise just pop it on top
         if (button[page.title].animationOff) {
             $.contentView.add(view);
+            $.leftNavButtonView.touchEnabled = true;
+            $.rightNavButtonView.touchEnabled = true;
         } else {
-        	view.visible = false;
+            view.visible = false;
             animateIn(button[page.title].animationDirection, view);
         }
+
     } else if (button[page.title].callbackType == 'close') {
         //Style nav bar and buttons back to previous page
         $.pageTitle.text = prevPage.title || $.pageTitle.text || '';
@@ -104,6 +115,8 @@ function eventListener(button) {
         //Remove view from navigation, animating if it is set to true
         if (button[page.title].animationOff) {
             $.contentView.remove(viewStack[viewStack.length - 1]);
+            $.leftNavButtonView.touchEnabled = true;
+        $.rightNavButtonView.touchEnabled = true;
         } else {
             animateOut(button[page.title].animationDirection, viewStack[viewStack.length - 1]);
         }
@@ -125,7 +138,8 @@ function animateIn(direction, view) {
         top       : 0,
         bottom    : 0,
         left      : 0,
-        right     : 0
+        right     : 0,
+        duration  : 300
     });
     
     $.contentView.add(view);
@@ -146,12 +160,16 @@ function animateIn(direction, view) {
     }
     
     view.visible = true;
-    
     view.animate(animation);
+    
+    animation.addEventListener('complete', function() {
+        $.leftNavButtonView.touchEnabled = true;
+        $.rightNavButtonView.touchEnabled = true;
+    });
 };
 
 function animateOut(direction, view) {
-    var animation = Ti.UI.createAnimation({duration: 5000});
+    var animation = Ti.UI.createAnimation({duration : 300});
    
     //Change the animation to slide-out the view the opposite way the the view slid in
     if (direction == 'left') {
@@ -173,5 +191,7 @@ function animateOut(direction, view) {
     //Let the animation finish before the view is removed
     animation.addEventListener('complete', function() {
         $.contentView.remove(view);
+        $.leftNavButtonView.touchEnabled = true;
+        $.rightNavButtonView.touchEnabled = true;
     });
 };

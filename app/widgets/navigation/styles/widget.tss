@@ -15,11 +15,12 @@
 
 
 '#leftNavButtonView' : {
-	left   : 10,
-	bottom : 10,
-	height : Ti.UI.SIZE,
-	width  : Ti.UI.SIZE,
-	layout : 'horizontal'
+	left  		 : 10,
+	bottom 	   	 : 10,
+	height 	 	 : Ti.UI.SIZE,
+	width 		 : Ti.UI.SIZE,
+	layout		 : 'horizontal',
+	touchEnabled : true
 },
 '#leftNavButtonImage' : {
 	height : Ti.UI.SIZE,
@@ -33,11 +34,12 @@
 },
 
 '#rightNavButtonView' : {
-	right  : 10,
-	bottom : 10,
-	height : Ti.UI.SIZE,
-	width  : Ti.UI.SIZE,
-	layout : 'horizontal'
+	right        : 10,
+	bottom       : 10,
+	height       : Ti.UI.SIZE,
+	width        : Ti.UI.SIZE,
+	layout       : 'horizontal',
+	touchEnabled : true
 },
 '#rightNavButtonLabel' : {
 	height  : 20,

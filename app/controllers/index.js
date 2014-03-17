@@ -19,7 +19,7 @@ function init() {
         callback           : '/settings',
         callbackType       : 'open',
         //animationOff       : false,
-        animationDirection : 'left'
+        animationDirection : 'up'
     }, {
         //text               : '',
         //textColor          : '#007aff',
@@ -28,7 +28,7 @@ function init() {
         callback           : '/about',
         callbackType       : 'open',
         //animationOff       : false,
-        animationDirection : 'right'
+        animationDirection : 'down'
     });
 
     //Content

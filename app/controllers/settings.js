@@ -10,7 +10,7 @@ function init() {
     }, {
         text               : 'Back',
         callbackType       : 'close',
-        animationDirection : 'left'
+        animationDirection : 'down'
     });
 
     //Has to be done after rendering due to an issue where the value isn't used
