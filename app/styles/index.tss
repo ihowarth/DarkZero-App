@@ -1,3 +1,9 @@
+"#mainWin[platform=android]": {
+	backgroundColor : Alloy.Globals.colors.background,
+	layout          : 'vertical',
+	navBarHidden    : true
+}
+
 "#mainWin": {
 	backgroundColor : Alloy.Globals.colors.background,
 	layout          : 'vertical',

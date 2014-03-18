@@ -57,8 +57,6 @@ var APP = {
 }; 
 
 lightColors = {
-    statusBarStyle   : Titanium.UI.iPhone.StatusBar.DEFAULT,
-    
     background       : '#ffffff',
     
     navBarBackground : '#ffffff',
@@ -73,8 +71,6 @@ lightColors = {
 };
 
 darkColors = {
-    statusBarStyle   : Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK,
-    
     background       : '#000000',
     
     navBarBackground : '#000000',
@@ -87,6 +83,11 @@ darkColors = {
     tableBackground  : '#000000',
     tableSeparator   : '#ffffff'
 };
+
+if(APP.osname == 'iphone' || 'ipad') {
+    lightColors.statusBarStyle = Titanium.UI.iPhone.StatusBar.DEFAULT;
+    darkColors.statusBarStyle  = Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK;
+}
 
 APP.checkFirstTime();
 APP.changeTheme();

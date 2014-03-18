@@ -32,8 +32,11 @@ $.mainWin.open();
 
 Alloy.Globals.changeIndexTheme = function() {
     $.mainWin.backgroundColor = Alloy.Globals.colors.background;
-    $.mainWin.statusBarStyle  = Alloy.Globals.colors.statusBarStyle;
-}; 
+
+    if (APP.osname == 'iphone' || 'ipad') {
+        $.mainWin.statusBarStyle = Alloy.Globals.colors.statusBarStyle;
+    }
+};
 
 //TODO: show this on top of loading screen (activity indicator screen)
 function showThemeChoiceAlert() {
@@ -50,6 +53,8 @@ function showThemeChoiceAlert() {
             Ti.App.Properties.setString('theme', 'dark');
         }
         APP.changeTheme();
+        Alloy.Globals.changeIndexTheme();
+        Alloy.Globals.changeFrontPageTheme();
     });
     
     themeAlert.show();

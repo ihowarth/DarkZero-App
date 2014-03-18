@@ -165,7 +165,7 @@ function animateIn(direction, view) {
     view.animate(animation);
 
     animation.addEventListener('complete', function() {
-        $.leftNavButtonView.touchEnabled = true;
+        $.leftNavButtonView.touchEnabled  = true;
         $.rightNavButtonView.touchEnabled = true;
     });
 };
