@@ -84,9 +84,11 @@ darkColors = {
     tableSeparator   : '#ffffff'
 };
 
-if(APP.osname == 'iphone' || 'ipad') {
+if(APP.osname == 'iphone' || APP.osname == 'ipad') {
     lightColors.statusBarStyle = Titanium.UI.iPhone.StatusBar.DEFAULT;
     darkColors.statusBarStyle  = Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK;
+} else {
+    
 }
 
 APP.checkFirstTime();
