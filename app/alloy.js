@@ -16,6 +16,8 @@ var debug = false;
 //Widgets
 Alloy.Globals.NavigationWidget = Alloy.createWidget('navigation');
 
+//Modules
+
 //Libs
 Alloy.Globals.darkZeroTeamLib = require('darkZeroTeam');
 
@@ -52,6 +54,7 @@ var APP = {
         Alloy.Globals.NavigationWidget.editNavView({
             backgroundColor    : Alloy.Globals.colors.navBarBackground,
             titleColor         : Alloy.Globals.colors.navBarTitle,
+            shadowColor        : Alloy.Globals.colors.navBarShadow
         });
     },   
 }; 
@@ -59,29 +62,47 @@ var APP = {
 lightColors = {
     background       : '#ffffff',
     
-    navBarBackground : '#ffffff',
+    navBarBackground : '#f0f0f0',
     navBarTitle      : '#000000',
+    navBarShadow     : '#ababab',
+    navBarText       : '#3599fc',
     
-    highlightText    : '#007aff',
+    highlightText    : '#0f82f5',
     headerText       : '#000000',
-    normalText       : '#909090',
+    lightText        : '#858282',
     
-    tableBackground  : '#ffffff',
-    tableSeparator   : '#000000'
+    settingsLabels   : '#636262',
+    
+    aboutStory       : '383838',
+    aboutHighlight   : '007bff',
+    aboutHeader      : '333333',
+    aboutInfo        : '#838485', 
+    
+    tableBackground  : 'transparent',
+    tableSeparator   : 'transparent'
 };
 
 darkColors = {
-    background       : '#000000',
+    background       : '#242222',
     
-    navBarBackground : '#000000',
-    navBarTitle      : '#ffffff',
+    navBarBackground : '#1f1e1e',
+    navBarTitle      : '#e3dede',
+    navBarShadow     : '#171616',
+    navBarText       : '#3599fc',
     
     highlightText    : '#007aff',
     headerText       : '#ffffff',
-    normalText       : '#909090',
+    lightText        : '#858282',
     
-    tableBackground  : '#000000',
-    tableSeparator   : '#ffffff'
+    settingsLabels   : '#ffffff',
+    
+    aboutStory       : '383838',
+    aboutHighlight   : '007bff',
+    aboutHeader      : '333333',
+    aboutInfo        : '#838485',  
+    
+    tableBackground  : 'transparent',
+    tableSeparator   : 'transparent'
 };
 
 if(APP.osname == 'iphone' || APP.osname == 'ipad') {

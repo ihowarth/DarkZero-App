@@ -9,6 +9,7 @@ exports.editNavView = function(navBar) {
     $.navBar.height           = navBar.height          || 60;
     $.navBar.backgroundColor  = navBar.backgroundColor || '#f0f0f0';
     $.shadow.visible          = navBar.shadowVisible   || true;
+    $.shadow.backgroundColor  = navBar.shadowColor     || '#909090';
     $.pageTitle.color         = navBar.titleColor      || '#000000';
     $.pageTitle.font          = navBar.titleFont       || {fontSize : 17};
 };

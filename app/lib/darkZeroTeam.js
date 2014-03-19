@@ -6,7 +6,8 @@ exports.getTeam = function() {
         occupation     : 'Hitman',
         favouriteGames : "Soda Drinker Pro, Spyro 2: Ripto's Rage, Windjammers, Street Fighter: The Movie: The Game",
         bio            : 'Runs a pretty awesome website called DarkZero.co.uk, where he has formed a team of super-human reviewers. Is also a time travelling cyborg who must stop SkyNet at all costs. Hasta la Vista, baby.',
-        image          : '/Settings.png'
+        image          : '/Team/Ben.jpg',
+        webpage        : 'https://darkzero.co.uk'
     };
     team.push(benK);
 
@@ -15,7 +16,8 @@ exports.getTeam = function() {
         occupation     : 'Energy drink tester',
         favouriteGames : 'lol',
         bio            : "I 'unno",
-        image          : '/Information.png'
+        image          : '/Team/Dom.jpg',
+        webpage        : 'https://twitter.com/Domstercool'
     };
     team.push(domS);
 
@@ -24,7 +26,8 @@ exports.getTeam = function() {
         occupation     : 'Application Dev',
         favouriteGames : 'Spelunky, Street Fighter IV, other stuff',
         bio            : 'meh',
-        image          : '/Settings.png'
+        image          : '/Team/Ian.jpg',
+        webpage        : 'https://twitter.com/GeekKingCloud'
     };
     team.push(ianH);
 
@@ -33,18 +36,20 @@ exports.getTeam = function() {
         occupation     : 'Application Dev',
         favouriteGames : 'Spelunky, Street Fighter IV, other stuff',
         bio            : 'meh',
-        image          : '/Settings.png'
+        image          : '/Team/Thomas.png',
+        webpage        : 'https://facebook.com'
     };
     team.push(thomas);
 
-    var simon = {
-        name           : 'Simon',
+    var nathan = {
+        name           : 'Nathan',
         occupation     : 'Application Dev',
         favouriteGames : 'Spelunky, Street Fighter IV, other stuff',
         bio            : 'meh',
-        image          : '/Settings.png'
+        image          : '/Team/Nathan.jpg',
+        webpage        : 'https://twitter.com'
     };
-    team.push(simon);
+    team.push(nathan);
     
     return team;
 };

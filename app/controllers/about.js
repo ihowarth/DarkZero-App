@@ -7,6 +7,7 @@ function init() {
         title              : 'About'
     }, {
         text               : 'Back',
+        textColor          : Alloy.Globals.colors.navBarText,
         callbackType       : 'close',
         animationDirection : 'right'
     }, {
@@ -49,6 +50,18 @@ function updateTable() {
     var team = Alloy.Globals.darkZeroTeamLib.getTeam();
     var teamRows = [];
     
+
+    function createLabel() {
+        return Ti.UI.createLabel({
+            top    : 0,
+            left   : 110,
+            font   : {fontSize : 9},
+            height : Ti.UI.SIZE,
+            width  : Ti.UI.SIZE,
+            color  : Alloy.Globals.colors.aboutInfo
+        });
+    };
+
     for (var member in team) {
         var row = Ti.UI.createTableViewRow({
             top             : 10,
@@ -57,10 +70,10 @@ function updateTable() {
         });
     
         var image = Ti.UI.createImageView({
-            top    : 10,
+            top    : 0,
             left   : 0,
-            width  : 75,
-            height : 75
+            width  : 100,
+            height : 100
         });
         row.add(image);
     
@@ -70,32 +83,14 @@ function updateTable() {
         });
         row.add(labelContainer);
         
-        var name = Ti.UI.createLabel({
-            top  : 10,
-            left : 100,
-            font : {fontSize : 9}
-        });
+        var name = createLabel();
+        var occupation = createLabel();
+        var games = createLabel();
+        var bio = createLabel();
+        
         labelContainer.add(name);
-    
-        var occupation = Ti.UI.createLabel({
-            top  : 10,
-            left : 100,
-            font : {fontSize : 9}
-        });
         labelContainer.add(occupation);
-        
-        var games = Ti.UI.createLabel({
-            top  : 10,
-            left : 100,
-            font : {fontSize : 9}
-        });
         labelContainer.add(games);
-        
-        var bio = Ti.UI.createLabel({
-            top  : 10,
-            left : 100,
-            font : {fontSize : 9}
-        });
         labelContainer.add(bio);
      
         name.text       = 'Name: ' + team[member].name;
@@ -103,7 +98,7 @@ function updateTable() {
         games.text      = 'Favourite Games: ' + team[member].favouriteGames;
         bio.text        = 'Bio: ' + team[member].bio;
         image.image     = team[member].image;
-            
+        
         $.teamTable.appendRow(row);
     };
 };

@@ -8,7 +8,8 @@
 	width           : '100%',
 	scrollable      : false,
 	allowsSelection : false,
-	separatorColor  : Alloy.Globals.colors.tableSeparator
+	separatorColor  : Alloy.Globals.colors.tableSeparator,
+	backgroundColor : Alloy.Globals.colors.tableBackground
 },
 
 
@@ -20,7 +21,7 @@
 	left  : 10,
 	text  : 'Allow Push notifications',
 	font  : {fontSize : 12},
-	color : Alloy.Globals.colors.normalText
+	color : Alloy.Globals.colors.settingsLabels
 },
 '#pushNotificationsSwitch' : {
 	right : 10
@@ -35,7 +36,7 @@
 	left  : 10,
 	text  : 'Enable light theme',
 	font  : {fontSize : 12},
-	color : Alloy.Globals.colors.normalText
+	color : Alloy.Globals.colors.settingsLabels
 },
 '#themeSwitch' : {
 	right : 10

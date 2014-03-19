@@ -1,16 +1,21 @@
 <Alloy>
 	<View id='container'>
 		<ScrollView id="aboutView">
-			<ImageView id='logo'/>
-			<Label id='info'/>
-			<Label id='emailLink'/>
-			<Label id='follow'/>
-			<View id='socialContainer'>
-				<ImageView id='facebook'/>
-				<ImageView id='twitter'/>
+			<Label id='pullingLabel'/>
+			<Label id='notHereLabel'/>
+			<Label id='boredLabel'/>
+			<View id='layoutContainer'>
+				<ImageView id='logo'/>
+				<Label id='info'/>
+				<Label id='emailLink'/>
+				<Label id='follow'/>
+				<View id='socialContainer'>
+					<ImageView id='facebook'/>
+					<ImageView id='twitter'/>
+				</View>
+				<Label id='meet'/>
+				<TableView id='teamTable'/>
 			</View>
-			<Label id='meet'/>
-			<TableView id='teamTable'/>
 		</ScrollView>
 	</View>
 </Alloy>
