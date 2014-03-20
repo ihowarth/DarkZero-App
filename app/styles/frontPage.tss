@@ -1,11 +1,19 @@
 '#mainView' : {
 	backgroundColor : Alloy.Globals.colors.background
 },
-'#reviewTable' : {
+
+'#tempImageView' : {
+	top    : 0,
+	image  : 'TempImageView.png',
+	width  : Ti.UI.SIZE,
+	height : Ti.UI.SIZE
+},
+
+'#postTable' : {
 	height          : 350,
 	width           : 300,
 	bottom          : 0,
 	separatorInsets : {right : 0, left : 0},
-	separatorColor  : Alloy.Globals.colors.tableSeparator,
+	separatorColor  : Alloy.Globals.colors.frontPageSeparator,
 	backgroundColor : Alloy.Globals.colors.tableBackground
 }

@@ -61,8 +61,6 @@ function openNoInternetDialog() {
 
 function updateTable() {
     var team = Alloy.Globals.darkZeroTeamLib.getTeam();
-    var teamRows = [];
-    
 
     function createLabel() {
         return Ti.UI.createLabel({

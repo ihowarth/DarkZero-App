@@ -17,7 +17,7 @@ function init() {
         callbackType       : 'open',
         animationDirection : 'left'
     }, {
-        image              : '/Information.png',
+        image              : '/About.png',
         callback           : '/about',
         callbackType       : 'open',
         animationDirection : 'right'

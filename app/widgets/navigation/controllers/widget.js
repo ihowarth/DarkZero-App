@@ -14,6 +14,7 @@ exports.editNavView = function(navBar) {
     $.pageTitle.font          = navBar.titleFont       || {fontSize : 17};
 };
 
+//TODO: Allow UI elements to replace Title, so segmented controls can be used, for example
 exports.addNewView = function(content, navBar, leftButton, rightButton) {
     //If there is a controller to open, do so and add it to the view
     if (content.controller) {
@@ -132,6 +133,8 @@ function eventListener(button) {
     }
 };
 
+
+//FIXME: Animation jittering iOS, sometimes not animating Anroid
 function animateIn(direction, view) {    
     $.contentView.add(view);
     

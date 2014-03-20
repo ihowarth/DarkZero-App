@@ -29,7 +29,7 @@
 },
 
 '#logo'   : {
-	image : '/Logo.png'
+	image : Alloy.Globals.colors.aboutLogo
 },
 '#info' : {
 	text      : 'We are based in both the UK and the US and welcome emails from readers, publishers, developers, advertisers and PR agencies. \n \n If you would like us to review your game, please just ask! We try to cover as many as we can.\n \n',

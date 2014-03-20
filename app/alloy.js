@@ -60,49 +60,64 @@ var APP = {
 }; 
 
 lightColors = {
-    background       : '#ffffff',
+    background         : '#ffffff',
     
-    navBarBackground : '#f0f0f0',
-    navBarTitle      : '#000000',
-    navBarShadow     : '#ababab',
-    navBarText       : '#3599fc',
+    navBarBackground   : '#f2f1f1',
+    navBarTitle        : '#000000',
+    navBarShadow       : '#adadad',
+    navBarText         : '#2a93ff',
     
-    highlightText    : '#0f82f5',
-    headerText       : '#000000',
-    lightText        : '#858282',
+    frontPageTitle     : '#2a93ff',
+    frontPageDetails   : '#868383',
+    frontPageSeparator : '#e8e7e7',
     
-    settingsLabels   : '#636262',
+    postTitle          : '#000000',
+    postInfo           : '#7d7c7c',
+    postAuthor         : '#2a93ff',
+    postText           : '#000000',
     
-    aboutStory       : '383838',
-    aboutHighlight   : '007bff',
-    aboutHeader      : '333333',
-    aboutInfo        : '#838485', 
+    settingsLabels     : '#646363',
     
-    tableBackground  : 'transparent',
-    tableSeparator   : 'transparent'
+    aboutStory         : '#3a3a3a',
+    aboutHighlight     : '#007aff',
+    aboutHeader        : '#000000',
+    aboutInfo          : '#858687', 
+    aboutLogo          : '/DZLogo.png',
+    
+    tableBackground    : 'transparent',
+    tableSeparator     : 'transparent'
 };
 
 darkColors = {
-    background       : '#242222',
+    background         : '#252323',
     
-    navBarBackground : '#1f1e1e',
-    navBarTitle      : '#e3dede',
-    navBarShadow     : '#171616',
-    navBarText       : '#3599fc',
+    navBarBackground   : '#1f1e1e',
+    navBarTitle        : '#e5e0e0',
+    navBarShadow       : '#3e3d3d',
+    navBarText         : '#3498fe',
     
-    highlightText    : '#007aff',
-    headerText       : '#ffffff',
-    lightText        : '#858282',
+    frontPageTitle     : '#2a93ff',
+    frontPageDetails   : '#868383',
+    frontPageSeparator : 'transparent',
     
-    settingsLabels   : '#ffffff',
+    postTitle          : '#e5e0e0',
+    postInfo           : '#7d7c7c',
+    postAuthor         : '#2a93ff',
+    postText           : '#e5e0e0',
     
-    aboutStory       : '383838',
-    aboutHighlight   : '007bff',
-    aboutHeader      : '333333',
-    aboutInfo        : '#838485',  
+    detailsHeader      : '#d4cfcf',
+    detailsInfo        : '#858687',
     
-    tableBackground  : 'transparent',
-    tableSeparator   : 'transparent'
+    settingsLabels     : '#e5e0e0',
+    
+    aboutStory         : '#e5e0e0',
+    aboutHighlight     : '#007aff',
+    aboutHeader        : '#e5e0e0',
+    aboutInfo          : '#858687',  
+    aboutLogo          : '/DZDarkLogo.png',
+    
+    tableBackground    : 'transparent',
+    tableSeparator     : 'transparent'
 };
 
 if(APP.osname == 'iphone' || APP.osname == 'ipad') {
