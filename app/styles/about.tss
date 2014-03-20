@@ -14,7 +14,7 @@
 	text  : "You aren't supposed to be here...",
 }
 '#pullingLabel' : {
-	top   : -100,
+	top   : -130,
 	color : Alloy.Globals.colors.aboutStory,
 	text  : "Stop pulling on me!",
 },

@@ -28,21 +28,34 @@ function addEventListeners() {
                 messageBody  : 'DarkZero is awesome!'
             }).open();
         } else {
-            Ti.UI.createAlertDialog({
-                title   : 'No Network Connection',
-                message : 'You must be connected to the internet to send an e-mail',
-                ok      : 'Okay'
-            }).open();
+            openNoInternetDialog();
+        }
+    });
+   
+    $.facebook.addEventListener('touchend', function() {
+        if (APP.checkNetwork()) {
+            Ti.Platform.openURL('https://m.facebook.com/videogame.community?ref=ts&fref=ts');
+        } else {
+            openNoInternetDialog();
         }
     });
 
-    $.facebook.addEventListener('touchend', function() {
-        alert('Facebook');
-    });
-
     $.twitter.addEventListener('touchend', function() {
-        alert('Twitter');
-    });
+        if (APP.checkNetwork()) {
+            Ti.Platform.openURL('https://mobile.twitter.com/DarkZeroUK');
+        } else {
+            openNoInternetDialog();
+        }
+    }); 
+
+};
+
+function openNoInternetDialog() {
+    Ti.UI.createAlertDialog({
+        title   : 'No Network Connection',
+        message : 'You must be connected to the internet to send an e-mail',
+        ok      : 'Okay'
+    }).open();
 };
 
 
