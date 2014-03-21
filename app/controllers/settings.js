@@ -1,5 +1,6 @@
 var args = arguments[0] || {};
 
+var code = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
 function init() {
     Alloy.Globals.NavigationWidget.addNewView({
         //No content needed
@@ -54,6 +55,19 @@ function addEventListeners() {
        
        Alloy.Globals.changeIndexTheme();
        Alloy.Globals.changeFrontPageTheme();
+    });
+    
+    $.secretView.addEventListener('swipe', function(e) {
+         if(e.direction == code[0]) {
+             code.shift();
+             if(code.length == 0) {
+                 //TODO : Open secret page :D
+                 alert('KONAMI code detected!');
+                 code = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
+             }
+         } else {
+             code = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
+         }
     });
 };
 

@@ -10,5 +10,6 @@
 				<Switch id="themeSwitch"/>
 			</TableViewRow>
 		</TableView>
+		<View id='secretView'/>
 	</View>
 </Alloy>

@@ -1,0 +1,23 @@
+<Alloy>
+	<TableViewRow id='row'>
+		<ImageView id='image'/>
+		<View id='labelsContainer'>
+			<View id='nameContainer'>
+				<Label id='nameHeader'/>
+				<Label id='name'/>
+			</View>
+			<View id='occupationContainer'>
+				<Label id='occupationHeader'/>
+				<Label id='occupation'/>
+			</View>
+			<View id='gamesContainer'>
+				<Label id='gamesHeader'/>
+				<Label id='games'/>
+			</View>
+			<View id='bioContainer'>
+				<Label id='bioHeader'/>
+				<Label id='bio'/>
+			</View>
+		</View>
+	</TableViewRow>
+</Alloy>

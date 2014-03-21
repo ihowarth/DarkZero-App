@@ -40,4 +40,9 @@
 },
 '#themeSwitch' : {
 	right : 10
+},
+
+'#secretView' : {
+	top    : 120,
+	width  : Ti.UI.FILL
 }

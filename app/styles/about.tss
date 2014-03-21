@@ -21,7 +21,7 @@
 '#boredLabel' : {
 	top   : -200,
 	color : Alloy.Globals.colors.aboutStory,
-	text  : "Are you really that bored?",
+	text  : "KONAMI code - Settings",
 },
 
 '#layoutContainer' : {

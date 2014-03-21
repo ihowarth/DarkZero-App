@@ -7,7 +7,6 @@ init();
 
 Alloy.Globals.changeFrontPageTheme = function() {
     $.mainView.backgroundColor    = Alloy.Globals.colors.background; 
-    //TODO:Changing the seperator color doesn't update it, so I need to find a middleground color or leave transparent
     $.postTable.separatorColor    = Alloy.Globals.colors.frontPageSeparator;
     $.postTable.backgroundColor   = Alloy.Globals.colors.tableBackground;
     //Loop through rows and change backgroundColor
