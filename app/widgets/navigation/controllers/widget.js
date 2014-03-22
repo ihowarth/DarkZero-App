@@ -74,14 +74,17 @@ function navButtonSetup(button, side) {
         label.color   = button.textColor || '#007aff';
         label.font    = button.textFont  || {fontSize : 15};
         label.visible = true;
-        view.visible  = true;
+        view.opacity = 1;
     } else if (button.image) {
         image.image  = button.image;
         label.text   = '';
-        view.visible = true;
+        view.opacity = 1;
     } else {
-        view.visible = false;
+        view.opacity = 0;
     }
+    
+    console.log(button);
+    console.log('Side: ' + side + ' Visible: ' + view.visible);
 };
 
 function eventListener(button) {
@@ -107,11 +110,6 @@ function eventListener(button) {
         }
 
     } else if (button[page.title].callbackType == 'close') {
-        //Style nav bar and buttons back to previous page
-        $.pageTitle.text = prevPage.title || $.pageTitle.text || '';
-        navButtonSetup(leftButtonStack[prevPage.title], 'left');
-        navButtonSetup(rightButtonStack[prevPage.title], 'right');
-
         //Remove view from navigation, animating if it is set to true
         if (button[page.title].animationOff) {
             $.contentView.remove(viewStack[viewStack.length - 1]);
@@ -120,6 +118,11 @@ function eventListener(button) {
         } else {
             animateOut(button[page.title].animationDirection, viewStack[viewStack.length - 1]);
         }
+		 
+		//Style nav bar and buttons back to previous page
+		$.pageTitle.text = prevPage.title || $.pageTitle.text || '';
+        navButtonSetup(leftButtonStack[prevPage.title], 'left');
+        navButtonSetup(rightButtonStack[prevPage.title], 'right'); 
 		 
         //Remove the elements that are closed
         controllerStack[controllerStack.length - 1].destroy();
@@ -134,7 +137,7 @@ function eventListener(button) {
 };
 
 
-//FIXME: Animation jittering iOS, sometimes not animating Anroid
+//FIXME: Animation jittering iOS, sometimes not animating Android
 function animateIn(direction, view) {    
     $.contentView.add(view);
     
@@ -143,7 +146,7 @@ function animateIn(direction, view) {
         bottom    : 0,
         left      : 0,
         right     : 0,
-        duration  : 300
+        duration  : 500
     });
     
     //-1 because 1 pixel needs to be on screen to animate iOS
@@ -175,7 +178,7 @@ function animateIn(direction, view) {
 };
 
 function animateOut(direction, view) {
-    var animation = Ti.UI.createAnimation({duration : 300});
+    var animation = Ti.UI.createAnimation({duration : 500});
    
     //Change the animation to slide-out the view the opposite way the the view slid in
     if (direction == 'left') {
