@@ -78,59 +78,19 @@ function openNoInternetDialog() {
 
 function updateTable() {
     var team = Alloy.Globals.darkZeroTeamLib.getTeam();
-    /**
-     * Create the row, with image view and headers etc in another JS file and create instances of it here, inside the for loop
-     */
-    function createLabel() {
-        return Ti.UI.createLabel({
-            top : 0,
-            left : 110,
-            font : {
-                fontSize : 9
-            },
-            height : Ti.UI.SIZE,
-            width : Ti.UI.SIZE,
-            color : Alloy.Globals.colors.aboutInfo
-        });
-    };
-
+    
+    var args = {};
+    var rows = [];
     for (var member in team) {
-        var row = Ti.UI.createTableViewRow({
-            top : 10,
-            height : Ti.UI.SIZE,
-            backgroundColor : Alloy.Globals.colors.tableBackground
-        });
-
-        var image = Ti.UI.createImageView({
-            top : 0,
-            left : 0,
-            width : 100,
-            height : 100
-        });
-        row.add(image);
-
-        var labelContainer = Ti.UI.createView({
-            height : Ti.UI.SIZE,
-            layout : 'vertical'
-        });
-        row.add(labelContainer);
-
-        var name = createLabel();
-        var occupation = createLabel();
-        var games = createLabel();
-        var bio = createLabel();
-
-        labelContainer.add(name);
-        labelContainer.add(occupation);
-        labelContainer.add(games);
-        labelContainer.add(bio);
-
-        name.text = 'Name: ' + team[member].name;
-        occupation.text = 'Occupation: ' + team[member].occupation;
-        games.text = 'Favourite Games: ' + team[member].favouriteGames;
-        bio.text = 'Bio: ' + team[member].bio;
-        image.image = team[member].image;
-
-        $.teamTable.appendRow(row);
+        args.name       = team[member].name;
+        args.occupation = team[member].occupation;
+        args.games      = team[member].favouriteGames;
+        args.bio        = team[member].bio;
+        args.image      = team[member].image;
+        
+        var row = Alloy.createController('aboutRow', args).getView();
+        rows.push(row);
     };
+    
+    $.teamTable.setData(rows);
 };
