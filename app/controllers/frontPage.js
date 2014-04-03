@@ -1,7 +1,7 @@
 var args = arguments[0] || {};
 
 function init() {
-    
+    //TODO: CREATE FAKE DATA AND FILL THE TABLE! BITCH!
 };
 init();
 

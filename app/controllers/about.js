@@ -47,7 +47,6 @@ function addEventListeners() {
             openNoInternetDialog();
         }
     }); 
-
 };
 
 function showLeavingMessage(webpage) {

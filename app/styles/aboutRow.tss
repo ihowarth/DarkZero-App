@@ -2,33 +2,12 @@
 	top : 20
 },
 
-'#verticalContainer' : {
-	left   : 0,
-	layout : 'vertical',
-	width  : Ti.UI.SIZE,
-	height : Ti.UI.SIZE
-},
-'#rowContainer' : {
-	left   : 0,
-	height : Ti.UI.SIZE,
-	width  : Ti.UI.SIZE,
-	layout : 'horizontal'
-},
-
 '#image' : {
 	left   : 0,
 	top    : 0,
 	height : 100,
 	width  : 100
 }
-
-'#labelsContainer' : {
-	top    : 0,
-	left   : 5,
-	layout : 'vertical',
-	width  : Ti.UI.SIZE,
-	height : Ti.UI.SIZE
-},
 
 '#name' : {
 	left  : 0,
@@ -47,7 +26,6 @@
 	font  : {fontSize : 8},
 	color : Alloy.Globals.colors.aboutInfo
 },
-
 '#games' : {	
 	left  : 0,
 	font  : {fontSize : 8},

@@ -96,8 +96,6 @@ function eventListener(button) {
         //Add the new view on top and add it to the viewStack for removal later
         var controller = Alloy.createController(button[page.title].callback);
         var view = controller.getView();
-        viewStack.push(view);
-        controllerStack.push(controller);
 
         //If animation is true animate the view, otherwise just pop it on top
         if (button[page.title].animationOff) {
@@ -108,6 +106,9 @@ function eventListener(button) {
             view.visible = false;
             animateIn(button[page.title].animationDirection, view);
         }
+        
+        viewStack.push(view);
+        controllerStack.push(controller);
 
     } else if (button[page.title].callbackType == 'close') {
         //Remove view from navigation, animating if it is set to true

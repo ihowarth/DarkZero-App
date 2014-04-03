@@ -12,7 +12,7 @@ function init() {
         text               : 'Back',
         textColor          : Alloy.Globals.colors.navBarText,
         callbackType       : 'close',
-        animationDirection : 'left'
+        animationDirection : 'left',
     });
 
     //Has to be done after rendering due to an issue where the value isn't used

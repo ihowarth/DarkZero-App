@@ -15,16 +15,20 @@ function init() {
         image              : '/Settings.png',
         callback           : '/settings',
         callbackType       : 'open',
-        animationDirection : 'left'
+        animationDirection : 'left',
+        //animationOff       : true
     }, {
         image              : '/About.png',
         callback           : '/about',
         callbackType       : 'open',
-        animationDirection : 'right'
+        animationDirection : 'right',
+        //animationOff       : true
     });
 
     //Add the navigation controller to the window
     $.mainWin.add(Alloy.Globals.NavigationWidget.getView());
+    
+    Alloy.Globals.darkZeroDataLib.sendGetRequest();
 };
 init();
 

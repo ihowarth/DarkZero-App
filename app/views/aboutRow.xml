@@ -1,15 +1,9 @@
 <Alloy>
 	<TableViewRow id='row'>
-		<View id='verticalContainer'>
-			<View id='rowContainer'>
-				<ImageView id='image'/>
-				<View id='labelsContainer'>
-					<Label id='name'/>
-					<Label id='occupation'/>
-					<Label id='bio'/>
-				</View>
-			</View>
-		    <Label id='games'/>
-		</View>
+		<ImageView id='image'/>
+		<Label id='name'/>
+		<Label id='occupation'/>
+		<Label id='bio'/>
+		<Label id='games'/>
 	</TableViewRow>
 </Alloy>
