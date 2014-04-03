@@ -16,13 +16,13 @@ function init() {
         callback           : '/settings',
         callbackType       : 'open',
         animationDirection : 'left',
-        //animationOff       : true
+        animationOff       : true
     }, {
         image              : '/About.png',
         callback           : '/about',
         callbackType       : 'open',
         animationDirection : 'right',
-        //animationOff       : true
+        animationOff       : true
     });
 
     //Add the navigation controller to the window

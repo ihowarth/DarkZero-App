@@ -4,7 +4,7 @@ exports.sendGetRequest = function(){
     xhr.onload = function(e) {
         var data = JSON.parse(this.responseData);
         for (var i = 0; i < 20; i++) {
-            console.log(JSON.stringify(data[i]));
+            console.log(data[i]);
         }
     };
     xhr.onerror = function(e) {
