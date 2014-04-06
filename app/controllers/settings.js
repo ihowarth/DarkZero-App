@@ -1,19 +1,8 @@
 var args = arguments[0] || {};
 
 var code = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
-function init() {
-    Alloy.Globals.NavigationWidget.addNewView({
-        //No content needed
-    }, {
-        title              : 'Settings'
-    }, {
-        //No left button
-    }, {
-        text               : 'Back',
-        textColor          : Alloy.Globals.colors.navBarText,
-        callbackType       : 'close',
-        animationDirection : 'left',
-    });
+
+(function init() {
 
     //Has to be done after rendering due to an issue where the value isn't used
     if(Ti.App.Properties.getString('theme', 'light') == 'light') {
@@ -29,8 +18,7 @@ function init() {
     }
     
     addEventListeners();
-};
-init(); 
+})(); 
 
 function addEventListeners() {
     $.pushNotificationsSwitch.addEventListener('change', function(e) {

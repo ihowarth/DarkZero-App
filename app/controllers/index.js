@@ -1,4 +1,4 @@
-function init() {
+(function init() {
     //if a theme has not been decided show the decider alert dialog
     if (!Ti.App.Properties.getString('theme')) {
         showThemeChoiceAlert();
@@ -6,31 +6,8 @@ function init() {
         APP.changeTheme();   
     }
     
-    //Set up controller, nav bar buttons and title
-    Alloy.Globals.NavigationWidget.addNewView({
-        controller         : '/frontPage'
-    },  {
-        title              : 'DarkZero',
-    },  {
-        image              : '/Settings.png',
-        callback           : '/settings',
-        callbackType       : 'open',
-        animationDirection : 'left',
-        animationOff       : true
-    }, {
-        image              : '/About.png',
-        callback           : '/about',
-        callbackType       : 'open',
-        animationDirection : 'right',
-        animationOff       : true
-    });
-
-    //Add the navigation controller to the window
-    $.mainWin.add(Alloy.Globals.NavigationWidget.getView());
-    
     Alloy.Globals.darkZeroDataLib.sendGetRequest();
-};
-init();
+})();
 
 $.mainWin.open();
 

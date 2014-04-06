@@ -1,9 +1,8 @@
 var args = arguments[0] || {};
 
-function init() {
+(function init() {
     //TODO: Fill in the table
-};
-init();
+})();
 
 Alloy.Globals.changeFrontPageTheme = function() {
     $.mainView.backgroundColor    = Alloy.Globals.colors.background; 

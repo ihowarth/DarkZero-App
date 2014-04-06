@@ -1,23 +1,9 @@
 var args = arguments[0] || {};
 
-function init() {
-    Alloy.Globals.NavigationWidget.addNewView({
-        //No content needed
-    }, {
-        title              : 'About'
-    }, {
-        text               : 'Back',
-        textColor          : Alloy.Globals.colors.navBarText,
-        callbackType       : 'close',
-        animationDirection : 'right'
-    }, {
-        //No right button
-    }); 
-
+(function init() {
     updateTable();
     addEventListeners();
-};
-init();
+})();
 
 function addEventListeners() {
     $.emailLink.addEventListener('touchend', function() {

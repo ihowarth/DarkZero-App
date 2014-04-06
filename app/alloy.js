@@ -14,7 +14,6 @@ var debug = false;
 //Controllers
 
 //Widgets
-Alloy.Globals.NavigationWidget = Alloy.createWidget('navigation');
 
 //Modules
 
@@ -52,11 +51,7 @@ var APP = {
             Alloy.Globals.colors = darkColors;
         }
         
-        Alloy.Globals.NavigationWidget.editNavView({
-            backgroundColor    : Alloy.Globals.colors.navBarBackground,
-            titleColor         : Alloy.Globals.colors.navBarTitle,
-            shadowColor        : Alloy.Globals.colors.navBarShadow
-        });
+        // Change Nav bar colors/images
     },   
 }; 
 
