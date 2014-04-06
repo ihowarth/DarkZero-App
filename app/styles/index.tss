@@ -2,11 +2,20 @@
 	backgroundColor : Alloy.Globals.colors.background,
 	layout          : 'vertical',
 	navBarHidden    : true
-}
+},
 
 "#mainWin": {
 	backgroundColor : Alloy.Globals.colors.background,
 	layout          : 'vertical',
 	navBarHidden    : true,
 	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
+},
+
+'#navView' : {
+	height : 60
+},
+
+'#contentView' : {
+	height : Ti.UI.FILL,
+	width  : Ti.UI.FILL		
 }

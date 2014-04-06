@@ -13,7 +13,7 @@ exports.sendGetRequest = function(){
 	   
 	   setTimeout(function(){
     	   for(var i = 0; i < postsArray.length; i++) {
-    	       console.log(postsArray[i].date);
+    	       //console.log(postsArray[i].date);
     	   } 
 	   }, 2000);
 	}, 5000);

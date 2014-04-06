@@ -1,3 +1,13 @@
+var navBar = Alloy.createController('/navView', {
+    title : 'DarkZero',
+    leftButton : {
+        image : '/Settings.png'
+    },
+    rightButton : {
+        image : '/About.png'
+    }
+}); 
+    
 (function init() {
     //if a theme has not been decided show the decider alert dialog
     if (!Ti.App.Properties.getString('theme')) {
@@ -7,13 +17,41 @@
     }
     
     Alloy.Globals.darkZeroDataLib.sendGetRequest();
+    
+    $.navView.add(navBar.getView());
+    
+    $.contentView.add(Alloy.createController('/frontPage').getView());
+    
+    addEventListeners();
 })();
 
-$.mainWin.open();
+function addEventListeners() {
+    $.navView.addEventListener('click', function(e){
+        if(e.source.id.slice(0, 4) == 'left') {
+            Alloy.createController('/settings').getView().open();
+        } else if(e.source.id.slice(0, 4) == 'righ') {
+            Alloy.createController('/about').getView().open();    
+        } else {
+            // Do nothing when not clicking a button
+        }
+    });
+    
+    $.mainWin.addEventListener('swipe', function(e) {
+        if(e.source.id == 'postTable') {
+            if(e.direction == 'left') {
+                Alloy.createController('/about').getView().open();
+            } else {
+                Alloy.createController('/settings').getView().open();
+            } 
+        }
+    });    
+};
 
 Alloy.Globals.changeIndexTheme = function() {
     $.mainWin.backgroundColor = Alloy.Globals.colors.background;
-
+    
+    navBar.editNavView({});
+    
     if (APP.osname == 'iphone' || 'ipad') {
         $.mainWin.statusBarStyle = Alloy.Globals.colors.statusBarStyle;
     }
@@ -40,3 +78,5 @@ function showThemeChoiceAlert() {
     
     themeAlert.show();
 };
+
+$.mainWin.open();

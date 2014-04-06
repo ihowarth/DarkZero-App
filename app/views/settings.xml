@@ -1,5 +1,6 @@
 <Alloy>
-	<View id='container'>
+	<Window id='container'>
+		<View id='navView'/>
 		<TableView id='settingsTable'>
 			<TableViewRow id='notificationsRow'>
 				<Label id='pushNotificationsLabel'/>
@@ -11,5 +12,5 @@
 			</TableViewRow>
 		</TableView>
 		<View id='secretView'/>
-	</View>
+	</Window>
 </Alloy>

@@ -1,9 +1,20 @@
-'#container' : {
-	backgroundColor : Alloy.Globals.colors.background
-}
+'#container[platform=ios]' : {
+	backgroundColor : Alloy.Globals.colors.background,
+	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
+},
+
+'#container[platform=android]' : {
+	backgroundColor : Alloy.Globals.colors.background,
+	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
+},
+
+'#navView' : {
+	top    : 0,
+	height : 60
+},
 
 '#settingsTable' : {
-	top             : 20,
+	top             : 80,
 	height          : Ti.UI.SIZE,
 	width           : '100%',
 	scrollable      : false,
@@ -43,6 +54,8 @@
 },
 
 '#secretView' : {
-	top    : 120,
-	width  : Ti.UI.FILL
+	left   : 0,
+	bottom : 0,
+	height : 150,
+	width  : 150,
 }

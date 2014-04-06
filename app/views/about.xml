@@ -1,5 +1,6 @@
 <Alloy>
-	<View id='container'>
+	<Window id='container'>
+		<View id='navView'/>
 		<ScrollView id="aboutView">
 			<Label id='pullingLabel'/>
 			<Label id='notHereLabel'/>
@@ -17,5 +18,5 @@
 				<TableView id='teamTable'/>
 			</View>
 		</ScrollView>
-	</View>
+	</Window>
 </Alloy>

@@ -51,7 +51,13 @@ var APP = {
             Alloy.Globals.colors = darkColors;
         }
         
-        // Change Nav bar colors/images
+        var navView = Alloy.createController('/navView');
+        navView.editNavView({
+            backgroundColor : Alloy.Globals.colors.navBarBackground,
+            shadowColor     : Alloy.Globals.colors.navBarShadow,
+            titleColor      : Alloy.Globals.colors.navBarTitle,
+            buttonTextColor : Alloy.Globals.colors.navBarTest
+        });
     },   
 }; 
 

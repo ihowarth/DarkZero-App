@@ -1,4 +1,6 @@
 <Alloy>
 	<Window id='mainWin'>
+		<View id='navView'/>
+		<View id='contentView'/>
 	</Window>
 </Alloy>

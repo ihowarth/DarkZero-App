@@ -1,11 +1,41 @@
 var args = arguments[0] || {};
 
 (function init() {
+    $.navView.add(Alloy.createController('/navView', {
+        title      : 'About',
+        leftButton : {
+            text : 'Back'
+        },
+        rightButton : {
+            // No right button
+        } 
+    }).getView());
+    
     updateTable();
     addEventListeners();
 })();
 
 function addEventListeners() {
+    $.navView.addEventListener('click', function(e){
+        if(e.source.id.slice(0, 4) == 'left') {
+            $.container.close();
+        } else {
+            // Do nothing when not clicking a button
+        }
+    });      
+    
+    $.container.addEventListener('swipe', function(e){
+        if(e.direction == 'right') {
+            $.container.close();
+        } else {
+            // Do nothing when not clicking a button
+        }
+    });  
+    
+    $.container.addEventListener('close', function(){
+        $.destroy();
+    });
+    
     $.emailLink.addEventListener('touchend', function() {
         if (APP.checkNetwork()) {
             Ti.UI.createEmailDialog({
