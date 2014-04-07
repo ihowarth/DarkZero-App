@@ -1,10 +1,10 @@
-'#mainView' : {
-	backgroundColor : Alloy.Globals.colors.background
+'#container' : {
+	backgroundColor : Alloy.Globals.colors.background,
+	layout			: 'vertical'
 },
 
-'#tempImageView' : {
+'#newsFeed' : {
 	top    : 0,
-	image  : 'TempImageView.png',
 	width  : Ti.UI.SIZE,
 	height : Ti.UI.SIZE
 },

@@ -1,0 +1,10 @@
+'#container' : {
+	width  : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+},
+
+'#tempImage' : {
+	width  : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	image  : '/TempImageView.png'	
+}

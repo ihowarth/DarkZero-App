@@ -34,7 +34,7 @@ var navBar = Alloy.createController('/navView', {
 function addEventListeners() {
     $.navView.addEventListener('click', function(e){
         if(e.source.id.slice(0, 4) == 'righ') {
-            $.container.close();
+            $.container.close({right : 400});
         } else {
             // Do nothing when not clicking a button
         }
@@ -45,7 +45,7 @@ function addEventListeners() {
             // Don't let secret view change to next screen
         } else {
             if(e.direction == 'left') {
-                $.container.close();
+                $.container.close({right : 400});
             } else {
                 // Do nothing when not clicking a button
             }
@@ -101,9 +101,9 @@ function changeSettingsTheme() {
     }
     
     navBar.editNavView({});
-    
+       
     $.container.backgroundColor        = Alloy.Globals.colors.background;
-    
+     
     $.pushNotificationsLabel.color     = Alloy.Globals.colors.settingsLabels;
     $.themeLabel.color                 = Alloy.Globals.colors.settingsLabels;
     

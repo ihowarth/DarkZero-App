@@ -18,7 +18,7 @@ var args = arguments[0] || {};
 function addEventListeners() {
     $.navView.addEventListener('click', function(e){
         if(e.source.id.slice(0, 4) == 'left') {
-            $.container.close();
+            $.container.close({left : 400});
         } else {
             // Do nothing when not clicking a button
         }
@@ -26,7 +26,7 @@ function addEventListeners() {
     
     $.container.addEventListener('swipe', function(e){
         if(e.direction == 'right') {
-            $.container.close();
+            $.container.close({left : 400});
         } else {
             // Do nothing when not clicking a button
         }

@@ -1,8 +1,6 @@
 <Alloy>
-	<View id='mainView'>
-		<!--NEWSFEED WILL GO HERE-->
-		<ImageView id='tempImageView'/>
-		<!--OHYESITWILL-->
+	<View id='container'>
+		<View id='newsFeed'/>
 		<TableView id='postTable'>
 			<!--TableViewRow id='postRow' dataCollection='posts' dataTransform='DOINEEDTHIS?'-->
 		</TableView>

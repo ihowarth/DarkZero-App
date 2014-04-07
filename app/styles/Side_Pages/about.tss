@@ -1,11 +1,13 @@
 '#container[platform=ios]' : {
+	left			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
-	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
+	statusBarStyle  : Alloy.Globals.colors.statusBarStyle,
 },
 
 '#container[platform=android]' : {
+	left			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
-	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
+	navBarHidden    : true,
 },
 
 '#navView' : {
@@ -32,7 +34,7 @@
 '#boredLabel' : {
 	top   : -200,
 	color : Alloy.Globals.colors.aboutStory,
-	text  : "KONAMI code - Settings",
+	text  : "KONAMI - bottom-left settings",
 },
 
 '#layoutContainer' : {

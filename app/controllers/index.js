@@ -20,7 +20,7 @@ var navBar = Alloy.createController('/navView', {
     
     $.navView.add(navBar.getView());
     
-    $.contentView.add(Alloy.createController('/frontPage').getView());
+    $.contentView.add(Alloy.createController('/News_N_Posts/frontPage').getView());
     
     addEventListeners();
 })();
@@ -28,20 +28,20 @@ var navBar = Alloy.createController('/navView', {
 function addEventListeners() {
     $.navView.addEventListener('click', function(e){
         if(e.source.id.slice(0, 4) == 'left') {
-            Alloy.createController('/settings').getView().open();
+            Alloy.createController('/Side_Pages/settings').getView().open({right : 0});
         } else if(e.source.id.slice(0, 4) == 'righ') {
-            Alloy.createController('/about').getView().open();    
+            Alloy.createController('/Side_Pages/about').getView().open({left : 0});    
         } else {
             // Do nothing when not clicking a button
         }
     });
     
-    $.mainWin.addEventListener('swipe', function(e) {
+    $.contentView.addEventListener('swipe', function(e) {
         if(e.source.id == 'postTable') {
             if(e.direction == 'left') {
-                Alloy.createController('/about').getView().open();
+                Alloy.createController('/Side_Pages/about').getView().open({left : 0});
             } else {
-                Alloy.createController('/settings').getView().open();
+                Alloy.createController('/Side_Pages/settings').getView().open({right : 0});
             } 
         }
     });    

@@ -1,11 +1,13 @@
 '#container[platform=ios]' : {
+	right 			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
 	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
 },
 
 '#container[platform=android]' : {
+	right 			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
-	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
+	navBarHidden    : true,
 },
 
 '#navView' : {

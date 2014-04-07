@@ -17,5 +17,5 @@
 
 '#contentView' : {
 	height : Ti.UI.FILL,
-	width  : Ti.UI.FILL		
+	width  : Ti.UI.FILL
 }
