@@ -28,7 +28,7 @@ function addEventListeners() {
         if(e.direction == 'right') {
             $.container.close({left : 400});
         } else {
-            // Do nothing when not clicking a button
+            // Do nothing when swiping left
         }
     });  
     
