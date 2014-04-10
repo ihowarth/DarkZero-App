@@ -41,5 +41,6 @@
 '#contentView' : {
 	top    : 5,
 	width  : 300,
-	//height : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	backgroundColor : 'yellow',
 }
