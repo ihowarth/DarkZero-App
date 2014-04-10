@@ -41,8 +41,15 @@ var APP = {
     },
     
     //Check network connection
-    checkNetwork : function() {
-        return Titanium.Network.getOnline();
+    checkNetwork : function(action) {
+        if (Titanium.Network.getOnline()) {
+            return true;
+        } else {
+            var alert = Ti.UI.createAlertDialog({
+                message : 'You must be connected to the internet to ' + action
+            }).show();
+            return false;
+        } 
     },
     
     changeTheme : function() {
