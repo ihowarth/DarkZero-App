@@ -22,6 +22,7 @@ Alloy.Globals.darkZeroTeamLib = require('darkZeroTeam');
 Alloy.Globals.darkZeroDataLib = require('darkZeroData');
 
 //Collections
+Alloy.Collections.posts = Alloy.createCollection('posts');
 
 var APP = {
     //Device Info
@@ -58,12 +59,15 @@ lightColors = {
     
     navBarBackground   : '#f2f1f1',
     navBarTitle        : '#000000',
-    navBarShadow       : '#adadad',
+    navBarShadow       : '#ababab',
     navBarText         : '#2a93ff',
     
     frontPageTitle     : '#2a93ff',
     frontPageDetails   : '#868383',
     frontPageSeparator : '#e8e7e7',
+    
+    postsTableInfo     : '#858282',
+    postsTableTitle    : '#0f82f5',
     
     postTitle          : '#000000',
     postInfo           : '#7d7c7c',
@@ -87,12 +91,15 @@ darkColors = {
     
     navBarBackground   : '#1f1e1e',
     navBarTitle        : '#e5e0e0',
-    navBarShadow       : '#3e3d3d',
+    navBarShadow       : '#171616',
     navBarText         : '#3498fe',
     
     frontPageTitle     : '#2a93ff',
     frontPageDetails   : '#868383',
     frontPageSeparator : 'transparent',
+    
+    postsTableInfo     : '#858282',
+    postsTableTitle    : '#0f82f5',
     
     postTitle          : '#e5e0e0',
     postInfo           : '#7d7c7c',

@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id='mainWin'>
 		<View id='navView'/>
-		<View id='contentView'/>
+		<Require src='News_N_Posts/frontPage'/>
 	</Window>
 </Alloy>

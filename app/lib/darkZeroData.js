@@ -4,7 +4,7 @@ var lastReviewsRequest  = 0;
 var lastArticlesRequest = 0;
 
 exports.sendGetRequest = function(){
-	sendHTTPRequest('post',     0, 10);
+	sendHTTPRequest('news',     0, 10);
 	sendHTTPRequest('reviews',  0, 10); 
 	sendHTTPRequest('articles', 0, 5);
 	
@@ -24,8 +24,24 @@ function sendHTTPRequest(type, start, amount) {
 
     xhr.onload = function(e) {
         var data = JSON.parse(this.responseData);
- 
+        
+        Alloy.Collections.posts.reset();
+        var date = new Date();
+        
         for (var i = start; i < (amount + start); i++) {
+            var postModel = Alloy.createModel('posts', {
+                type    : 'PC Review',
+                //time    : date - data[i].date,
+                time    : 'whut',
+                date    : data[i].date,
+                //image   : '/defaultCover.jpg',
+                title   : data[i].title,
+                author  : data[i].author,
+                content : data[i].content
+            });
+            postModel.save();
+            Alloy.Collections.posts.add(postModel);
+            
             var JSONpost = {
                 title   : data[i].title,
                 author  : data[i].author,
@@ -33,12 +49,14 @@ function sendHTTPRequest(type, start, amount) {
                 content : data[i].content
             };
              
-            if(type == 'post') {
+            if(type == 'news') {
                 newsArray.push(JSONpost);
             } else {
                 postsArray.push(JSONpost);
             }
         }
+        
+        Alloy.Collections.posts.fetch();
     };
     
     xhr.onerror = function(e) {

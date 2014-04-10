@@ -1,0 +1,12 @@
+<Alloy>
+	<TableViewRow id='row'>
+		<View id='container'>
+			<View id='topLabelContainer'>
+				<Label id='typeLabel' text='{type}'/>
+				<Label id='timeLabel' text='{time}'/>
+			</View>
+			<ImageView id='coverImage' image='{image}'/>
+			<Label id='titleLabel' text='{title}'/>
+		</View>
+	</TableViewRow>
+</Alloy>

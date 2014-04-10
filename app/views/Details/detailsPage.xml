@@ -1,0 +1,12 @@
+<Alloy>
+	<Window id='container'>
+		<View id='navView'/>
+		<ScrollView id='content'>
+			<Label id='titleLabel'/>
+			<Label id='typeLabel'/>
+			<Label id='authorLabel'/>
+			<Label id='dateLabel'/>
+			<WebView id='contentView'/>
+		</ScrollView>
+	</Window>
+</Alloy>

@@ -1,0 +1,39 @@
+'#row' : {	
+	height : 160
+},
+
+'#container' : {
+	height : Ti.UI.SIZE,
+	layout : 'vertical'
+},
+
+'#topLabelContainer' : {
+	height : Ti.UI.SIZE
+}
+'#typeLabel' : {
+	left   : 0,
+	top    : 5,
+	width  : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	font   : {fontSize : 11},
+	color  : Alloy.Globals.colors.postsTableInfo,
+},
+'#timeLabel' : {
+	right  : 0,
+	top    : 5,
+	width  : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	font   : {fontSize : 11},
+	color  : Alloy.Globals.colors.postsTableInfo,
+},
+
+'#coverImage' : {
+},
+'#titleLabel' : {
+	left   : 0,
+	bottom : 5,
+	width  : Ti.UI.SIZE,
+	height : Ti.UI.SIZE,
+	font   : {fontSize : 13},
+	color  : Alloy.Globals.colors.postsTableTitle,
+}
