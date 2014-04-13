@@ -9,6 +9,8 @@ var navBar = Alloy.createController('/navView', {
 }); 
 
 (function init() {
+    APP.activityIndicator.show('/TempImageView.png');
+    
     //if a theme has not been decided show the decider alert dialog
     if (!Ti.App.Properties.getString('theme')) {
         showThemeChoiceAlert();
@@ -16,7 +18,10 @@ var navBar = Alloy.createController('/navView', {
         APP.changeTheme();   
     }
     
-    Alloy.Globals.darkZeroDataLib.sendGetRequest();
+    
+    if(APP.checkNetwork('download new posts')) {
+        Alloy.Globals.darkZeroDataLib.sendGetRequest();
+    }
     
     $.navView.add(navBar.getView());
     
@@ -45,7 +50,6 @@ Alloy.Globals.changeIndexTheme = function() {
     }
 };
 
-//TODO: show this on top of loading screen (activity indicator screen)
 function showThemeChoiceAlert() {
     var themeAlert = Ti.UI.createAlertDialog({
         cancel      : -1,

@@ -23,6 +23,7 @@ Alloy.Globals.darkZeroDataLib = require('darkZeroData');
 
 //Collections
 Alloy.Collections.posts = Alloy.createCollection('posts');
+Alloy.Collections.posts.fetch();
 
 var APP = {
     //Device Info
@@ -50,6 +51,30 @@ var APP = {
             }).show();
             return false;
         } 
+    },
+    
+    activityIndicator : {
+        show : function(image) {
+            if (image) {
+                var coverImage = Ti.UI.createImageView({image : image});
+                //coverWindow.add(coverImage);
+            } else {
+                
+            }
+            var actInd = Titanium.UI.createActivityIndicator({
+                width  : Ti.UI.SIZE,
+                height : Ti.UI.SIZE,
+                style  : ActivityIndicatorStyle.PLAIN
+            });
+            
+            coverWindow.add(actInd);
+            actInd.show();    
+            coverWindow.open();
+        },
+        hide : function() {
+            actInd.hide();    
+            coverWindow.close();
+        }
     },
     
     changeTheme : function() {
@@ -128,11 +153,23 @@ darkColors = {
     tableSeparator     : 'transparent'
 };
 
+//Status Bar
 if(APP.osname == 'iphone' || APP.osname == 'ipad') {
     lightColors.statusBarStyle = Titanium.UI.iPhone.StatusBar.DEFAULT;
     darkColors.statusBarStyle  = Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK;
 } else {
     
+}
+
+//Activity Indicator Window
+var coverWindow = Ti.UI.createWindow({
+    zIndex       : 9999,
+});
+//Activity Indicator
+if(APP.osname == 'iphone' || APP.osname == 'ipad') {
+    ActivityIndicatorStyle = Titanium.UI.iPhone.ActivityIndicatorStyle;
+} else if (sdkVersion >= 3.0) {
+    ActivityIndicatorStyle = Titanium.UI.ActivityIndicatorStyle;
 }
 
 APP.checkFirstTime();

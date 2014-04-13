@@ -5,23 +5,11 @@ var args = arguments[0] || {};
 })();
 
 function addEventListeners() {
-    // $.postsTable.addEventListener('swipe', function(e) {
-        // if (e.direction == 'left') {
-            // Alloy.createController('/Side_Pages/about').getView().open({
-                // left : 0
-            // });
-        // } else {
-            // Alloy.createController('/Side_Pages/settings').getView().open({
-                // right : 0
-            // });
-        // }
-    // });
-
     $.postsTable.addEventListener('click', function(e) {
         var model = Alloy.Collections.posts.at(e.index);
         var JSONModel = model.toJSON();
         
-        Alloy.createController('/Details/detailsPage', JSONModel).getView().open({left : 0});
+        Alloy.createController('/Details/postDetailsPage', JSONModel).getView().open({left : 0});
     });
 
     $.postsTable.addEventListener('postlayout', function(e) {

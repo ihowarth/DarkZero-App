@@ -2,9 +2,17 @@ var lastReviewsRequest  = 0;
 var lastArticlesRequest = 0;
 
 exports.sendGetRequest = function(){
-	sendHTTPRequest('news',     0, 10);
-	sendHTTPRequest('reviews',  0, 10); 
-	sendHTTPRequest('articles', 0, 5);
+    
+    //Alloy.Collections.posts.reset();
+    var model;
+
+    while (model = Alloy.Collections.posts.first()) {
+        model.destroy();
+    }
+    
+	sendHTTPRequest('News',    0, 10);
+	sendHTTPRequest('Review',  0, 10); 
+	sendHTTPRequest('Article', 0, 5);
 };
 
 function sendHTTPRequest(type, start, amount) {
@@ -13,15 +21,14 @@ function sendHTTPRequest(type, start, amount) {
     xhr.onload = function(e) {
         var data = JSON.parse(this.responseData);
         
-        Alloy.Collections.posts.reset();
         var date = new Date();
         
         for (var i = start; i < (amount + start); i++) {
-            if(type == 'news') {
+            if(type == 'News') {
                
             } else {
                 var postModel = Alloy.createModel('posts', {
-                    type : 'PC Review',
+                    type : type,
                     //time    : date - data[i].date,
                     time : 'whut',
                     date : data[i].date,

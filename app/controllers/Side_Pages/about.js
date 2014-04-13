@@ -36,7 +36,7 @@ function addEventListeners() {
         $.destroy();
     });
     
-    $.emailLink.addEventListener('touchend', function() {
+    $.emailLink.addEventListener('click', function() {
         if (APP.checkNetwork('send e-mails')) {
             Ti.UI.createEmailDialog({
                 subject      : 'Message from DarkZero App',
@@ -46,16 +46,20 @@ function addEventListeners() {
         }
     });
    
-    $.facebook.addEventListener('touchend', function() {
+    $.facebook.addEventListener('click', function() {
         if (APP.checkNetwork('use Facebook')) {
             showLeavingMessage('https://m.facebook.com/videogame.community?ref=ts&fref=ts');
         }
     });
 
-    $.twitter.addEventListener('touchend', function() {
+    $.twitter.addEventListener('click', function() {
         if (APP.checkNetwork('use Twitter')) {
             showLeavingMessage('https://mobile.twitter.com/DarkZeroUK');
         }
+    });
+    
+    $.teamTable.addEventListener('click', function(e){
+        alert(JSON.stringify(e)); 
     }); 
 };
 

@@ -1,14 +1,19 @@
 '#row' : {
-	top : 20
+	top   : 20,
+	backgroundColor : 'yellow',
+	width : Ti.UI.FILL
 },
 
 '#image' : {
-	left   : 0,
+	right  : 0,
 	top    : 0,
 	height : 100,
 	width  : 100
 }
 
+'#labelContainer' : {
+	layout : 'vertical'
+},
 '#name' : {
 	left  : 0,
 	font  : {fontSize : 8},
@@ -16,17 +21,15 @@
 },
 '#occupation' : {
 	left  : 0,	
-	top   : 10,
-	font  : {fontSize : 8},
-	color : Alloy.Globals.colors.aboutInfo
-},
-'#bio' : {
-	left  : 0,
-	top   : 10,
 	font  : {fontSize : 8},
 	color : Alloy.Globals.colors.aboutInfo
 },
 '#games' : {	
+	left  : 0,
+	font  : {fontSize : 8},
+	color : Alloy.Globals.colors.aboutInfo
+},
+'#bio' : {
 	left  : 0,
 	font  : {fontSize : 8},
 	color : Alloy.Globals.colors.aboutInfo
