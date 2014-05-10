@@ -1,16 +1,16 @@
-'#row' : {	
+"#row" : {	
 	height : 160
 },
 
-'#container' : {
+"#container" : {
 	height : Ti.UI.SIZE,
-	layout : 'vertical'
+	layout : "vertical"
 },
 
-'#topLabelContainer' : {
+"#topLabelContainer" : {
 	height : Ti.UI.SIZE
 }
-'#typeLabel' : {
+"#typeLabel" : {
 	left   : 0,
 	top    : 5,
 	width  : Ti.UI.SIZE,
@@ -18,7 +18,7 @@
 	font   : {fontSize : 11},
 	color  : Alloy.Globals.colors.postsTableInfo,
 },
-'#timeLabel' : {
+"#timeLabel" : {
 	right  : 0,
 	top    : 5,
 	width  : Ti.UI.SIZE,
@@ -27,9 +27,9 @@
 	color  : Alloy.Globals.colors.postsTableInfo,
 },
 
-'#coverImage' : {
+"#coverImage" : {
 },
-'#titleLabel' : {
+"#titleLabel" : {
 	left   : 0,
 	bottom : 5,
 	width  : Ti.UI.SIZE,

@@ -1,97 +1,97 @@
-'#container[platform=ios]' : {
+"#container[platform=ios]" : {
 	left			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
 	statusBarStyle  : Alloy.Globals.colors.statusBarStyle,
 },
 
-'#container[platform=android]' : {
+"#container[platform=android]" : {
 	left			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
 	navBarHidden    : true,
 },
 
-'#navView' : {
+"#navView" : {
 	top    : 0,
 	height : 60
 },
 
-'#aboutView' : {
+"#aboutView" : {
 	top     	    : 60,
 	width    		: 300,
-	backgroundColor : 'transparent'
+	backgroundColor : "transparent"
 },
 
-'#notHereLabel' : {
+"#notHereLabel" : {
 	top   : -50,
 	color : Alloy.Globals.colors.aboutStory,
 	text  : "You aren't supposed to be here...",
 }
-'#pullingLabel' : {
+"#pullingLabel" : {
 	top   : -130,
 	color : Alloy.Globals.colors.aboutStory,
 	text  : "Stop pulling on me!",
 },
-'#boredLabel' : {
+"#boredLabel" : {
 	top   : -200,
 	color : Alloy.Globals.colors.aboutStory,
 	text  : "KONAMI - bottom-left settings",
 },
 
-'#layoutContainer' : {
-	layout   : 'vertical',
+"#layoutContainer" : {
+	layout   : "vertical",
 },
 
-'#logo'   : {
+"#logo"   : {
 	image : Alloy.Globals.colors.aboutLogo
 },
-'#info' : {
-	text      : 'We are based in both the UK and the US and welcome emails from readers, publishers, developers, advertisers and PR agencies. \n \n If you would like us to review your game, please just ask! We try to cover as many as we can.\n \n',
+"#info" : {
+	text      : "We are based in both the UK and the US and welcome emails from readers, publishers, developers, advertisers and PR agencies. \n \n If you would like us to review your game, please just ask! We try to cover as many as we can.\n \n",
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font      : {fontSize: 9},
 	color     : Alloy.Globals.colors.aboutStory
 },
-'#emailLink' : {
-	text      : 'team@darkzero.co.uk',
+"#emailLink" : {
+	text      : "team@darkzero.co.uk",
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font      : {fontSize: 9},
 	color     : Alloy.Globals.colors.aboutHighlight,
 },
-'#follow' : {
-	text      : '\n Follow us!',
+"#follow" : {
+	text      : "\n Follow us!",
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font      : {fontSize: 10},
 	color     : Alloy.Globals.colors.aboutHeader
 },
 
 
-'#socialContainer' : {
-	layout : 'horizontal',
+"#socialContainer" : {
+	layout : "horizontal",
 	top    : 10,
 	height : Ti.UI.SIZE,
 	width  : 130,
 },
-'#facebook' : {
+"#facebook" : {
 	width  : 60,
 	height : 60,
-	image  : '/FBIcon.png'
+	image  : "/FBIcon.png"
 },
-'#twitter' : {
+"#twitter" : {
 	left   : 10,
 	width  : 60,
 	height : 60,
-	image  : '/TwitterIcon.png'
+	image  : "/TwitterIcon.png"
 },
 
 
-'#meet' : {
-	text      : '\n Meet the team',
+"#meet" : {
+	text      : "\n Meet the team",
 	textAlign : Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font      : {fontSize: 9},
 	color     : Alloy.Globals.colors.aboutHeader
 },
 
 
-'#teamTable' : {
+"#teamTable" : {
 	top             : 20,
 	height          : Ti.UI.SIZE,
 	scrollable      : false,

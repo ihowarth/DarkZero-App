@@ -1,14 +1,14 @@
 <Alloy>
-	<View id='navBar'>
-		<Label id='pageTitle'/>
-		<View id='leftNavButtonView'>
-			<ImageView id='leftNavButtonImage'/>
-			<Label id='leftNavButtonLabel'/>
+	<View id="navBar">
+		<Label id="pageTitle"/>
+		<View id="leftNavButtonView">
+			<ImageView id="leftNavButtonImage"/>
+			<Label id="leftNavButtonLabel"/>
 		</View>
-		<View id='rightNavButtonView'>
-			<Label id='rightNavButtonLabel'/>
-			<ImageView id='rightNavButtonImage'/>
+		<View id="rightNavButtonView">
+			<Label id="rightNavButtonLabel"/>
+			<ImageView id="rightNavButtonImage"/>
 		</View>
-		<View id='shadow'/> 
+		<View id="shadow"/> 
 	</View>
 </Alloy>

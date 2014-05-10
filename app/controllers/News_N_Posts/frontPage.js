@@ -5,14 +5,14 @@ var args = arguments[0] || {};
 })();
 
 function addEventListeners() {
-    $.postsTable.addEventListener('click', function(e) {
+    $.postsTable.addEventListener("click", function(e) {
         var model = Alloy.Collections.posts.at(e.index);
         var JSONModel = model.toJSON();
         
-        Alloy.createController('/Details/postDetailsPage', JSONModel).getView().open({left : 0});
+        Alloy.createController("/Details/postDetailsPage", JSONModel).getView().open({left : 0});
     });
 
-    $.postsTable.addEventListener('postlayout', function(e) {
+    $.postsTable.addEventListener("postlayout", function(e) {
         Alloy.Collections.posts.fetch();
     }); 
 };

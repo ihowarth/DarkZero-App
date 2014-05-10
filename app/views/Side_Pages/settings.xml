@@ -1,16 +1,16 @@
 <Alloy>
-	<Window id='container'>
-		<View id='navView'/>
-		<TableView id='settingsTable'>
-			<TableViewRow id='notificationsRow'>
-				<Label id='pushNotificationsLabel'/>
+	<Window id="container">
+		<View id="navView"/>
+		<TableView id="settingsTable">
+			<TableViewRow id="notificationsRow">
+				<Label id="pushNotificationsLabel"/>
 				<Switch id="pushNotificationsSwitch"/>
 			</TableViewRow>
-			<TableViewRow id='themeRow'>
-				<Label id='themeLabel'/>
+			<TableViewRow id="themeRow">
+				<Label id="themeLabel"/>
 				<Switch id="themeSwitch"/>
 			</TableViewRow>
 		</TableView>
-		<View id='secretView'/>
+		<View id="secretView"/>
 	</Window>
 </Alloy>

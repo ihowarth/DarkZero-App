@@ -1,46 +1,72 @@
-'#container[platform=ios]' : {
+"#container[platform=ios]" : {
 	left			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
 	statusBarStyle  : Alloy.Globals.colors.statusBarStyle,
 },
 
-'#container[platform=android]' : {
+"#container[platform=android]" : {
 	left			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
 	navBarHidden    : true,
 },
 
-'#navView' : {
+"#navView" : {
 	top    : 0,
 	height : 60
 },
+"#tabbedBar" : {
+      
+},
 
-'#content' : {
+"#content" : {
 	top				: 60,
 	height			: Ti.UI.SIZE,
 	width    		: 300,
 	backgroundColor : Alloy.Globals.colors.background,
-	layout          : 'vertical'
+	layout          : "vertical"
 },
 
-'#titleLabel' : {
-	width : 300
+"#titleImage" : {
+    top    : 5,
+    height : Ti.UI.SIZE,
+    width  : 300
 },
-'#typeLabel' : {
-	top : 5,
-	width : 300
+
+"Label" : {
+    left  : 0,
+    width : Ti.UI.SIZE
 },
-'#authorLabel' : {
-	top : 5,
-	width : 300
+
+"#typeLabel" : {
+	top   : 5,
+	font  : { fontSize : 12 },
+	color : Alloy.Globals.colors.postInfo
 },
-'#dateLabel' : {
-	top : 5,
-	width : 300
+"#titleLabel" : {
+    font  : { fontSize : 14 },
+    color : Alloy.Globals.colors.postTitle
 },
-'#contentView' : {
-	top    : 5,
+
+"#dateAuthorContainer" : {
+    top    : 15,
+    left   : 0,
+    width  : Ti.UI.SIZE,
+    height : Ti.UI.SIZE,
+    layout : "horizontal"
+},
+"#dateLabel" : {
+    font  : { fontSize : 10 },
+    color : Alloy.Globals.colors.postInfo
+}
+"#authorLabel" : {
+	font  : { fontSize : 10 },
+	color : Alloy.Globals.colors.postAuthor
+},
+
+"#contentLabel" : {
+	top    : 15,
 	width  : 300,
 	height : Ti.UI.SIZE,
-	backgroundColor : 'yellow',
+	font   : { fontSize : 10 },
+	color  : Alloy.Globals.colors.postText
 }

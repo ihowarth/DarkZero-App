@@ -1,15 +1,9 @@
-'#container' : {
+"#container" : {
 	backgroundColor : Alloy.Globals.colors.background,
-	layout			: 'vertical'
+	layout			: "vertical"
 },
 
-'#newsFeed' : {
-	top    : 0,
-	width  : Ti.UI.SIZE,
-	height : Ti.UI.SIZE
-},
-
-'#postsTable' : {
+"#postsTable" : {
 	top           			    : 10,
 	height        			    : 350,
 	width          			    : 300,

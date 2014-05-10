@@ -1,11 +1,9 @@
 <Alloy>
-	<TableViewRow id='row'>
-		<ImageView id='image'/>
-		<View id='labelContainer'>
-			<Label id='name'/>
-			<Label id='occupation'/>
-			<Label id='games'/>
-			<Label id='bio'/>
-		</View>
+	<TableViewRow id="row">
+		<ImageView id="image"/>
+		<Label id="name"/>
+		<Label id="occupation"/>
+		<Label id="games"/>
+		<Label id="bio"/> 
 	</TableViewRow>
 </Alloy>

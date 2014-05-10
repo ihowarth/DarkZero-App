@@ -1,21 +1,21 @@
 "#mainWin[platform=android]": {
 	backgroundColor : Alloy.Globals.colors.background,
-	layout          : 'vertical',
+	layout          : "vertical",
 	navBarHidden    : true
 },
 
 "#mainWin": {
 	backgroundColor : Alloy.Globals.colors.background,
-	layout          : 'vertical',
+	layout          : "vertical",
 	navBarHidden    : true,
 	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
 },
 
-'#navView' : {
+"#navView" : {
 	height : 60
 },
 
-'#contentView' : {
+"#contentView" : {
 	height : Ti.UI.FILL,
 	width  : Ti.UI.FILL
 }

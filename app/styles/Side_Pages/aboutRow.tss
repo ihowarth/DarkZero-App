@@ -1,35 +1,30 @@
-'#row' : {
-	top   : 20,
-	backgroundColor : 'yellow',
-	width : Ti.UI.FILL
+"#row" : {
+	top    : 20,
+	layout : "vertical"
 },
 
-'#image' : {
-	right  : 0,
+"#image" : {
 	top    : 0,
 	height : 100,
 	width  : 100
 }
 
-'#labelContainer' : {
-	layout : 'vertical'
-},
-'#name' : {
+"#name" : {
 	left  : 0,
 	font  : {fontSize : 8},
 	color : Alloy.Globals.colors.aboutHighlight
 },
-'#occupation' : {
+"#occupation" : {
 	left  : 0,	
 	font  : {fontSize : 8},
 	color : Alloy.Globals.colors.aboutInfo
 },
-'#games' : {	
+"#games" : {	
 	left  : 0,
 	font  : {fontSize : 8},
 	color : Alloy.Globals.colors.aboutInfo
 },
-'#bio' : {
+"#bio" : {
 	left  : 0,
 	font  : {fontSize : 8},
 	color : Alloy.Globals.colors.aboutInfo

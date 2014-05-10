@@ -1,53 +1,53 @@
-'#navBar' : {
+"#navBar" : {
 	backgroundColor : Alloy.Globals.colors.navBarBackground
 },
-'#pageTitle' : {
+"#pageTitle" : {
 	bottom : 10,
 	font   : {fontSize : 17},
 	color  : Alloy.Globals.colors.navBarTitle
 },
 
 
-'#leftNavButtonView' : {
+"#leftNavButtonView" : {
 	left  		 : 10,
 	bottom 	   	 : 10,
 	height 	 	 : Ti.UI.SIZE,
 	width 		 : Ti.UI.SIZE,
-	layout		 : 'horizontal',
+	layout		 : "horizontal",
 	touchEnabled : true
 },
-'#leftNavButtonImage' : {
+"#leftNavButtonImage" : {
 	height : Ti.UI.SIZE,
 	width  : Ti.UI.SIZE
 },
-'#leftNavButtonLabel' : {
+"#leftNavButtonLabel" : {
 	height  : 20,
 	width   : Ti.UI.SIZE,
 	font    : {fontSize : 15},
 	color   : Alloy.Globals.colors.navBarText
 },
 
-'#rightNavButtonView' : {
+"#rightNavButtonView" : {
 	right        : 10,
 	bottom       : 10,
 	height       : Ti.UI.SIZE,
 	width        : Ti.UI.SIZE,
-	layout       : 'horizontal',
+	layout       : "horizontal",
 	touchEnabled : true
 },
-'#rightNavButtonLabel' : {
+"#rightNavButtonLabel" : {
 	height  : 20,
 	width   : Ti.UI.SIZE,
 	font    : {fontSize : 15},
 	color   : Alloy.Globals.colors.navBarText
 },
-'#rightNavButtonImage' : {
+"#rightNavButtonImage" : {
 	height : Ti.UI.SIZE,
 	width  : Ti.UI.SIZE
 },
 
 
-'#shadow' : {
+"#shadow" : {
 	bottom          : 0,
 	height          : 1,
 	backgroundColor : Alloy.Globals.colors.navBarShadow

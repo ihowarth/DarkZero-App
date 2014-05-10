@@ -1,8 +1,8 @@
 <Alloy>
-	<View id='container'>
-		<Require src='/News_N_Posts/frontNews'/>
-		<TableView id='postsTable' dataCollection='posts' dataTransform='editModels'>
-			<Require src='News_N_Posts/postsTableRow'/>
+	<View id="container">
+		<Require src="/News_N_Posts/frontNews"/>
+		<TableView id="postsTable" dataCollection="posts" dataTransform="editModels">
+			<Require src="News_N_Posts/postsTableRow"/>
 		</TableView>
 	</View>
 </Alloy>

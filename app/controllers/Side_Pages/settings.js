@@ -1,26 +1,26 @@
 var args = arguments[0] || {};
 
-var code = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
+var code = ["up", "up", "down", "down", "left", "right", "left", "right"];
 
-var navBar = Alloy.createController('/navView', {
-    title : 'Settings',
+var navBar = Alloy.createController("/navView", {
+    title : "Settings",
     leftButton : {
         // No left button
     },
     rightButton : {
-        text : 'Back'
+        text : "Back"
     }
 }); 
 
 (function init() {
-    //Has to be done after rendering due to an issue where the value isn't used
-    if(Ti.App.Properties.getString('theme', 'light') == 'light') {
+    //Has to be done after rendering due to an issue where the value isn"t used
+    if(Ti.App.Properties.getString("theme", "light") == "light") {
         $.themeSwitch.value = true;
     } else {
         $.themeSwitch.value = false;
     }
     
-    if(Ti.App.Properties.getString('pushNotifications', 'off') == 'on') {
+    if(Ti.App.Properties.getString("pushNotifications", "off") == "on") {
         $.pushNotificationsSwitch.value = true;
     } else {
         $.pushNotificationsSwitch.value = false;
@@ -32,19 +32,19 @@ var navBar = Alloy.createController('/navView', {
 })(); 
 
 function addEventListeners() {
-    $.navView.addEventListener('click', function(e){
-        if(e.source.id.slice(0, 4) == 'righ') {
+    $.navView.addEventListener("click", function(e){
+        if(e.source.id.slice(0, 4) == "righ") {
             $.container.close({right : 400});
         } else {
             // Do nothing when not clicking a button
         }
     });
     
-    $.container.addEventListener('swipe', function(e){
-        if(e.source.id == 'secretView') {
+    $.container.addEventListener("swipe", function(e){
+        if(e.source.id == "secretView") {
             // Don't let secret view change to next screen
         } else {
-            if(e.direction == 'left') {
+            if(e.direction == "left") {
                 $.container.close({right : 400});
             } else {
                 // Do nothing when swiping right
@@ -52,24 +52,24 @@ function addEventListeners() {
         }
     });      
     
-    $.container.addEventListener('close', function(){
+    $.container.addEventListener("close", function(){
         $.destroy();
     });
     
-    $.pushNotificationsSwitch.addEventListener('change', function(e) {
+    $.pushNotificationsSwitch.addEventListener("change", function(e) {
         if (e.value == true) {
-            Ti.App.Properties.setString('pushNotifications', 'on');
+            Ti.App.Properties.setString("pushNotifications", "on");
         } else {
-            Ti.App.Properties.setString('pushNotifications', 'off');
+            Ti.App.Properties.setString("pushNotifications", "off");
         }
         //changePushNotifications();
     }); 
 
-    $.themeSwitch.addEventListener('change', function(e) {
+    $.themeSwitch.addEventListener("change", function(e) {
        if(e.value == true) {
-           Ti.App.Properties.setString('theme', 'light');
+           Ti.App.Properties.setString("theme", "light");
        } else {
-           Ti.App.Properties.setString('theme', 'dark');
+           Ti.App.Properties.setString("theme", "dark");
        }
        APP.changeTheme();
        
@@ -80,21 +80,21 @@ function addEventListeners() {
        Alloy.Globals.changeFrontPageTheme();
     });
     
-    $.secretView.addEventListener('swipe', function(e) {
+    $.secretView.addEventListener("swipe", function(e) {
          if(e.direction == code[0]) {
              code.shift();
              if(code.length == 0) {
-                 Alloy.createController('/Side_Pages/secretPage').getView().open({right : 0});
-                 code = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
+                 Alloy.createController("/Side_Pages/secretPage").getView().open({right : 0});
+                 code = ["up", "up", "down", "down", "left", "right", "left", "right"];
              }
          } else {
-             code = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'];
+             code = ["up", "up", "down", "down", "left", "right", "left", "right"];
          }
     });
 };
 
 function changeSettingsTheme() {
-    if (APP.osname == 'iphone' || 'ipad') {
+    if (APP.osname == "iphone" || "ipad") {
         $.container.statusBarStyle = Alloy.Globals.colors.statusBarStyle;
     }
     

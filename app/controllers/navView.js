@@ -14,22 +14,22 @@ exports.editNavView = function(navBar) {
 };
 
 if(args) {
-    $.pageTitle.text = args.title || 'Default Title';
-    navButtonSetup(args.leftButton, 'left');
-    navButtonSetup(args.rightButton, 'right');
+    $.pageTitle.text = args.title || "Default Title";
+    navButtonSetup(args.leftButton, "left");
+    navButtonSetup(args.rightButton, "right");
 }
 
 function navButtonSetup(button, side) {
-    if (side == 'left') {
+    if (side == "left") {
         view        = $.leftNavButtonView;
         image       = $.leftNavButtonImage;
         label       = $.leftNavButtonLabel;
-        image.image = '/LeftNavArrow.png' || null;
+        image.image = "/LeftNavArrow.png" || null;
     } else {
         view        = $.rightNavButtonView;
         image       = $.rightNavButtonImage;
         label       = $.rightNavButtonLabel;
-        image.image = '/RightNavArrow.png' || null;
+        image.image = "/RightNavArrow.png" || null;
     }
 
     //Style the button according to the side and passed JSON info
@@ -41,7 +41,7 @@ function navButtonSetup(button, side) {
         view.opacity = 1;
     } else if (button.image) {
         image.image  = button.image;
-        label.text   = '';
+        label.text   = "";
         view.opacity = 1;
     } else {
         view.opacity = 0;

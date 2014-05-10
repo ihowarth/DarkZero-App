@@ -1,12 +1,18 @@
 <Alloy>
-	<Window id='container'>
-		<View id='navView'/>
-		<ScrollView id='content'>
-			<Label id='titleLabel'/>
-			<Label id='typeLabel'/>
-			<Label id='authorLabel'/>
-			<Label id='dateLabel'/>
-			<WebView id='contentView'/>
+	<Window id="container">
+		<View id="navView">
+		  <!-- <TabbedBar platform="ios" id="tabbedBar"/> -->
+		  <!-- <TabbedBar platform="android" id="tabbedBar"/> -->
+		</View>	
+		<ScrollView id="content">
+		    <ImageView id="titleImage"/>
+			<Label id="typeLabel"/>
+			<Label id="titleLabel"/>
+			<View id="dateAuthorContainer">
+			    <Label id="dateLabel"/>
+			    <Label id="authorLabel"/>
+			</View>
+			<Label id="contentLabel"/>
 		</ScrollView>
 	</Window>
 </Alloy>

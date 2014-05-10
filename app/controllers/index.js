@@ -1,26 +1,25 @@
-var navBar = Alloy.createController('/navView', {
-    title : 'DarkZero',
+var navBar = Alloy.createController("/navView", {
+    title : "DarkZero",
     leftButton : {
-        image : '/Settings.png'
+        image : "/Settings.png"
     },
     rightButton : {
-        image : '/About.png'
+        image : "/About.png"
     }
 }); 
 
 (function init() {
-    APP.activityIndicator.show('/TempImageView.png');
+    APP.activityIndicator.show("/TempImageView.png");
     
     //if a theme has not been decided show the decider alert dialog
-    if (!Ti.App.Properties.getString('theme')) {
+    if (!Ti.App.Properties.getString("theme")) {
         showThemeChoiceAlert();
     } else {
         APP.changeTheme();   
     }
     
-    
-    if(APP.checkNetwork('download new posts')) {
-        Alloy.Globals.darkZeroDataLib.sendGetRequest();
+    if(APP.checkNetwork("download new posts")) {
+       // Alloy.Globals.darkZeroDataLib.sendGetRequest();
     }
     
     $.navView.add(navBar.getView());
@@ -29,11 +28,11 @@ var navBar = Alloy.createController('/navView', {
 })();
 
 function addEventListeners() {
-    $.navView.addEventListener('click', function(e){
-        if(e.source.id.slice(0, 4) == 'left') {
-            Alloy.createController('/Side_Pages/settings').getView().open({right : 0});
-        } else if(e.source.id.slice(0, 4) == 'righ') {
-            Alloy.createController('/Side_Pages/about').getView().open({left : 0});    
+    $.navView.addEventListener("click", function(e){
+        if(e.source.id.slice(0, 4) == "left") {
+            Alloy.createController("/Side_Pages/settings").getView().open({right : 0});
+        } else if(e.source.id.slice(0, 4) == "righ") {
+            Alloy.createController("/Side_Pages/about").getView().open({left : 0});    
         } else {
             // Do nothing when not clicking a button
         }
@@ -45,7 +44,7 @@ Alloy.Globals.changeIndexTheme = function() {
     
     navBar.editNavView({});
     
-    if (APP.osname == 'iphone' || 'ipad') {
+    if (APP.osname == "iphone" || "ipad") {
         $.mainWin.statusBarStyle = Alloy.Globals.colors.statusBarStyle;
     }
 };
@@ -53,15 +52,15 @@ Alloy.Globals.changeIndexTheme = function() {
 function showThemeChoiceAlert() {
     var themeAlert = Ti.UI.createAlertDialog({
         cancel      : -1,
-        buttonNames : ['Light', 'Dark'],
-        title       : 'Choose a theme',
+        buttonNames : ["Light", "Dark"],
+        title       : "Choose a theme",
     });
 
-    themeAlert.addEventListener('click', function(e) {
+    themeAlert.addEventListener("click", function(e) {
         if (e.index == 0) {
-            Ti.App.Properties.setString('theme', 'light');
+            Ti.App.Properties.setString("theme", "light");
         } else {
-            Ti.App.Properties.setString('theme', 'dark');
+            Ti.App.Properties.setString("theme", "dark");
         }
         APP.changeTheme();
         Alloy.Globals.changeIndexTheme();

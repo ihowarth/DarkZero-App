@@ -1,12 +1,12 @@
 var args = arguments[0] || {};
 
-var navBar = Alloy.createController('/navView', {
-    title : 'Secret Page',
+var navBar = Alloy.createController("/navView", {
+    title : "Secret Page",
     leftButton : {
         // No left button
     },
     rightButton : {
-        text : 'Back'
+        text : "Back"
     }
 }); 
 
@@ -17,23 +17,23 @@ var navBar = Alloy.createController('/navView', {
 })();
 
 function addEventListeners() {
-    $.navView.addEventListener('click', function(e){
-        if(e.source.id.slice(0, 4) == 'righ') {
+    $.navView.addEventListener("click", function(e){
+        if(e.source.id.slice(0, 4) == "righ") {
             $.container.close({right : 400});
         } else {
             // Do nothing when not clicking a button
         }
     });
     
-    $.container.addEventListener('swipe', function(e) {
-        if (e.direction == 'left') {
+    $.container.addEventListener("swipe", function(e) {
+        if (e.direction == "left") {
             $.container.close({right : 400});
         } else {
             // Do nothing when swiping right
         }
     });
     
-    $.container.addEventListener('close', function(){
+    $.container.addEventListener("close", function(){
         $.destroy();
     });   
 };

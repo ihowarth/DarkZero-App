@@ -1,24 +1,23 @@
-'#container[platform=ios]' : {
+"#container[platform=ios]" : {
 	right 			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
 	statusBarStyle  : Alloy.Globals.colors.statusBarStyle
 },
 
-'#container[platform=android]' : {
+"#container[platform=android]" : {
 	right 			: 400,
 	backgroundColor : Alloy.Globals.colors.background,
 	navBarHidden    : true,
 },
 
-'#navView' : {
+"#navView" : {
 	top    : 0,
 	height : 60
 },
 
-'#settingsTable' : {
+"#settingsTable" : {
 	top             : 80,
 	height          : Ti.UI.SIZE,
-	width           : '100%',
 	scrollable      : false,
 	allowsSelection : false,
 	separatorColor  : Alloy.Globals.colors.tableSeparator,
@@ -26,36 +25,36 @@
 },
 
 
-'#notificationsRow' : {
+"#notificationsRow" : {
 	height : 50,
 	backgroundColor : Alloy.Globals.colors.tableBackground
 },
-'#pushNotificationsLabel' : {
+"#pushNotificationsLabel" : {
 	left  : 10,
-	text  : 'Allow Push notifications',
+	text  : "Allow Push notifications",
 	font  : {fontSize : 12},
 	color : Alloy.Globals.colors.settingsLabels
 },
-'#pushNotificationsSwitch' : {
+"#pushNotificationsSwitch" : {
 	right : 10
 },
 
 
-'#themeRow' : {
+"#themeRow" : {
 	height : 50,
 	backgroundColor : Alloy.Globals.colors.tableBackground
 },
-'#themeLabel' : {
+"#themeLabel" : {
 	left  : 10,
-	text  : 'Enable light theme',
+	text  : "Enable light theme",
 	font  : {fontSize : 12},
 	color : Alloy.Globals.colors.settingsLabels
 },
-'#themeSwitch' : {
+"#themeSwitch" : {
 	right : 10
 },
 
-'#secretView' : {
+"#secretView" : {
 	left   : 0,
 	bottom : 0,
 	height : 150,
