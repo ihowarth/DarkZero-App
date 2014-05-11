@@ -1,0 +1,38 @@
+"#topLevel" : {
+    top    : 0,
+    height : Ti.UI.SIZE,
+    width  : 320,
+},
+
+"#container" : {
+    layout : "vertical",
+    height : Ti.UI.SIZE,
+    width  : 300
+},
+
+"#topLabelContainer" : {
+    height : Ti.UI.SIZE
+}
+
+"#typeLabel" : {
+    left   : 0,
+    top    : 5,
+    font   : {fontSize : 11},
+    color  : Alloy.Globals.colors.postsTableInfo,
+    text   : "News"
+},
+"#timeLabel" : {
+    right  : 0,
+    top    : 5,
+    font   : {fontSize : 11},
+    color  : Alloy.Globals.colors.postsTableInfo
+},
+
+"#coverImage" : {
+},
+"#titleLabel" : {
+    left   : 0,
+    bottom : 5,
+    font   : {fontSize : 13},
+    color  : Alloy.Globals.colors.postsTableTitle,
+}

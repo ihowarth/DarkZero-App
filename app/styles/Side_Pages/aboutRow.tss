@@ -4,28 +4,28 @@
 },
 
 "#image" : {
-	top    : 0,
+	left   : 0,
 	height : 100,
 	width  : 100
-}
+},
 
 "#name" : {
-	left  : 0,
-	font  : {fontSize : 8},
-	color : Alloy.Globals.colors.aboutHighlight
+	left   : 0,
+	font   : {fontSize : 10},
+	color  : Alloy.Globals.colors.aboutHighlight
 },
 "#occupation" : {
-	left  : 0,	
-	font  : {fontSize : 8},
-	color : Alloy.Globals.colors.aboutInfo
+    left  : 0,   
+    font  : {fontSize : 8},
+    color : Alloy.Globals.colors.aboutInfo
 },
-"#games" : {	
-	left  : 0,
-	font  : {fontSize : 8},
-	color : Alloy.Globals.colors.aboutInfo
+"#games" : {
+    left  : 0,   
+    font  : {fontSize : 8},
+    color : Alloy.Globals.colors.aboutInfo
 },
 "#bio" : {
-	left  : 0,
-	font  : {fontSize : 8},
-	color : Alloy.Globals.colors.aboutInfo
+    left  : 0,   
+    font  : {fontSize : 8},
+    color : Alloy.Globals.colors.aboutInfo
 }

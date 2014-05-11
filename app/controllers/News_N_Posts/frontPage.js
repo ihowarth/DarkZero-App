@@ -11,6 +11,10 @@ function addEventListeners() {
         
         Alloy.createController("/Details/postDetailsPage", JSONModel).getView().open({left : 0});
     });
+    
+    $.newsView.addEventListener("click", function(e) {
+    	alert(e.index);
+    });
 
     $.postsTable.addEventListener("postlayout", function(e) {
         Alloy.Collections.posts.fetch();

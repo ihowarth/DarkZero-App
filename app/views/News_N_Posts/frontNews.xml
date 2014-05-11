@@ -1,5 +1,0 @@
-<Alloy>
-	<View id="container">
-		<ImageView id="tempImage"/>
-	</View>
-</Alloy>

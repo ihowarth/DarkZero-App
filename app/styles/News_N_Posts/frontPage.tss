@@ -3,12 +3,20 @@
 	layout			: "vertical"
 },
 
+'#newsView' : {
+    top    : 0,
+    height : Ti.UI.SIZE,
+    layout : "horizontal",
+    backgroundColor : 'red'
+},
+
 "#postsTable" : {
 	top           			    : 10,
 	height        			    : 350,
 	width          			    : 300,
 	separatorInsets			    : {right : 0, left : 0},
 	separatorColor 			    : Alloy.Globals.colors.frontPageSeparator,
-	backgroundColor 			: Alloy.Globals.colors.tableBackground,
+	backgroundColor : 'blue',
+	//backgroundColor 			: Alloy.Globals.colors.tableBackground,
 	showVerticalScrollIndicator : false
 }

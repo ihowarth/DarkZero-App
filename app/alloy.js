@@ -16,6 +16,7 @@ var debug = false;
 //Widgets
 
 //Modules
+var StyledLabel = require("ti.styledlabel");
 
 //Libs
 Alloy.Globals.darkZeroTeamLib = require("darkZeroTeam");

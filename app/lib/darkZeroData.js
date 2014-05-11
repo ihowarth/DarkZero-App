@@ -1,6 +1,3 @@
-var lastReviewsRequest  = 0;
-var lastArticlesRequest = 0;
-
 exports.sendGetRequest = function(){
     
     var reviewModel = Alloy.createModel("posts", {
@@ -29,6 +26,23 @@ exports.sendGetRequest = function(){
     });
     articleModel.save();
 	Alloy.Collections.posts.add(articleModel);
+	
+	var reviewModel2 = Alloy.createModel("posts", {
+    	type  		  : "Review",
+    	title 		  : "Numero Dos - JoJo’s Bizarre Adventure All-Star Battle",
+    	platform 	  : "PS3",
+    	//image		  : "",	
+    	alsoAvailable : "Xbox360, PC",
+    	publishTime   : "10/05/2014",
+    	publisher 	  : "Bandai Namco Games",
+		developer 	  : "CyberConnect2",
+    	genre 	  	  : "Fighting",
+		author 		  : "Dominic Sheard",
+		content       : "I suppose after creating the absurdly and stupendously over the top Asura’s Wrath, it only made sense that CyberConnect2, the team that also develops the Naruto Shippuden: Ultimate Ninja Storm series for Bandai Namco, should have a stab at creating a fighting game for the eccentric manga and anime known as JoJo’s Bizarre (spot on with the name) Adventure. The studio seems to have a knack for capturing the look and feel of such high-action anime shows, and with JoJo’s Bizarre Adventure having such a distinctive, extravagant style, the studio and the IP seem to be a great match for one another. It’s been around 14 years since we last got an English JoJo’s Bizarre Adventure game (if you don’t count the 2012 HD release of that said title), so let’s see how CyberConnect2 has done bringing the bizarre back to us.",
+		score         : "7"
+    });
+    reviewModel2.save();
+    Alloy.Collections.posts.add(reviewModel2);
 	
 	Alloy.Collections.posts.fetch();
 	// sendHTTPRequest("News",    0, 10);
@@ -72,9 +86,4 @@ function sendHTTPRequest(type, start, amount) {
     
     xhr.open("GET","http://darkzero.co.uk/?feed=json&post_type=" + type);
     xhr.send();
-};
-
-exports.getMorePosts = function() {
-    sentHTTPRequest("reviews",  lastReviewsRequest, 10);
-    sentHTTPRequest("articles", lastArticlesRequest, 5);
 };

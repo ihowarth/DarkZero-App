@@ -61,12 +61,4 @@
 "#authorLabel" : {
 	font  : { fontSize : 10 },
 	color : Alloy.Globals.colors.postAuthor
-},
-
-"#contentLabel" : {
-	top    : 15,
-	width  : 300,
-	height : Ti.UI.SIZE,
-	font   : { fontSize : 10 },
-	color  : Alloy.Globals.colors.postText
 }

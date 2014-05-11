@@ -1,0 +1,12 @@
+<Alloy>
+    <View id='topLevel'>
+    	<View id="container">
+    	    <View id="topLabelContainer">
+                <Label id="typeLabel"/>
+                <Label id="timeLabel" text="{publishTime}"/>
+            </View>
+            <ImageView id="coverImage" image="{image}"/>
+            <Label id="titleLabel" text="{title}"/>
+    	</View>
+    </View>
+</Alloy>

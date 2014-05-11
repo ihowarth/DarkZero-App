@@ -2,8 +2,8 @@
 	<TableViewRow id="row">
 		<ImageView id="image"/>
 		<Label id="name"/>
-		<Label id="occupation"/>
-		<Label id="games"/>
-		<Label id="bio"/> 
+    	<Label id="occupation"/>
+    	<Label id="games"/>
+    	<Label id="bio"/> 
 	</TableViewRow>
 </Alloy>
