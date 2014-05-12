@@ -41,7 +41,10 @@ function addEventListeners() {
             Ti.UI.createEmailDialog({
                 subject      : "Message from DarkZero App",
                 toRecipients : ["team@darkzero.co.uk"],
-                messageBody  : "DarkZero is awesome!"
+                messageBody  : "DarkZero is awesome!",
+                FAILED       : function(){
+                	alert('E-mail has failed \n Please make sure you have an e-mail account set-up on this device');
+                }
             }).open();
         }
     });

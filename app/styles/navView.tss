@@ -1,4 +1,5 @@
 "#navBar" : {
+    zIndex          : 999,
 	backgroundColor : Alloy.Globals.colors.navBarBackground
 },
 "#pageTitle" : {
