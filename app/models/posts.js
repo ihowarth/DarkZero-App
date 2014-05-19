@@ -29,8 +29,8 @@ exports.definition = {
 			"score"         : "Score"
 		},
 		adapter : {
-			type: "sql",
-			collection_name: "posts"
+			type			: "sql",
+			collection_name : "posts"
 		}
 	},
 	extendModel : function(Model) {

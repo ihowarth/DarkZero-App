@@ -8,8 +8,34 @@
  * 
  *********************************************/
 
+function getInfo( content , search , close) {
+	var beginning = content.indexOf( search ) + ( search.length );
+	
+	if ( close ) {
+		var end = content.indexOf( close ); 
+	} else {
+		var end = content.indexOf( search.replace( "[" , "[/" ) );	
+	}
+	
+	
+	return content.slice( beginning , end );
+};
+
 function parseData( data , callback ) {
-	var parsedData = data;
+	var parsedData = {
+		type  	      : "type",
+    	title 	      : data.title,
+    	platform 	  : getInfo( data.content , "[system]" ),
+    	image         : "image",
+    	alsoAvailable : getInfo( data.content , "[also]" ),
+    	publishTime   : "publishTime",
+    	publisher     : getInfo( data.content , "[pub]" ),
+		developer     : getInfo( data.content , "[dev]" ),
+    	genre 	  	  : getInfo( data.content , "[genre]" ),
+		author 	      : data.author,
+		content       : getInfo( data.content , "[/info]" , "[score]" ),
+		score         : getInfo( data.content , "[score]" )
+	};
 	
 	if (Alloy.Globals.DEBUG) { 
 		for ( var key in parsedData ) {
@@ -26,7 +52,11 @@ function getAllFeeds( callback ) {
 		method   : "GET",
 		format   : "JSON",
 		callback : function( e ) {
-			parseData( e , callback );
+			var length = e.data.length;
+			parseData( e.data[0] , callback );
+			// for(var i = 0; i < length; i++) {
+				// parseData( e.data[i] , callback );
+			// }
 		}
 	});
 };
