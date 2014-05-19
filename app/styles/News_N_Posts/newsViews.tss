@@ -33,6 +33,7 @@
 "#titleLabel" : {
     left   : 0,
     bottom : 5,
+    height : 15,
     font   : {fontSize : 13},
     color  : Alloy.Globals.colors.postsTableTitle,
 }

@@ -9,22 +9,43 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
-var debug = false;
 
-//Controllers
+Alloy.Globals.DEBUG = true;
 
-//Widgets
+var URL = "http://darkzero.co.uk/?feed=json";
 
-//Modules
+/**
+ * Controllers
+ */ 
+
+
+/**
+ * Widgets
+ */
+var ActivityIndicator = Alloy.createWidget( "Activity_Indicator" );
+ActivityIndicator.show( { text : "Loading" } );
+
+
+/**
+ * Modules
+ */
 var StyledLabel = require("ti.styledlabel");
 
-//Libs
-Alloy.Globals.darkZeroTeamLib = require("darkZeroTeam");
-Alloy.Globals.darkZeroDataLib = require("darkZeroData");
 
-//Collections
+/**
+ * Libs
+ */
+DarkZero 	 = require("DarkZero");
+DarkZeroTeam = require("DarkZeroTeam");
+HTTP 		 = require("HTTP");
+
+
+/**
+ * Collectionss
+ */
 Alloy.Collections.posts = Alloy.createCollection("posts");
 Alloy.Collections.posts.fetch();
+
 
 var APP = {
     //Device Info
@@ -53,31 +74,7 @@ var APP = {
             return false;
         } 
     },
-    
-    activityIndicator : {
-        show : function(image) {
-            if (image) {
-                var coverImage = Ti.UI.createImageView({image : image});
-                //coverWindow.add(coverImage);
-            } else {
-                
-            }
-            var actInd = Titanium.UI.createActivityIndicator({
-                width  : Ti.UI.SIZE,
-                height : Ti.UI.SIZE,
-                style  : ActivityIndicatorStyle.PLAIN
-            });
-            
-            coverWindow.add(actInd);
-            actInd.show();    
-            coverWindow.open();
-        },
-        hide : function() {
-            actInd.hide();    
-            coverWindow.close();
-        }
-    },
-    
+
     changeTheme : function() {
         if (Ti.App.Properties.getString("theme", "light") == "light") {
             Alloy.Globals.colors = lightColors;
@@ -158,19 +155,6 @@ darkColors = {
 if(APP.osname == "iphone" || APP.osname == "ipad") {
     lightColors.statusBarStyle = Titanium.UI.iPhone.StatusBar.DEFAULT;
     darkColors.statusBarStyle  = Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK;
-} else {
-    
-}
-
-//Activity Indicator Window
-var coverWindow = Ti.UI.createWindow({
-    zIndex       : 9999,
-});
-//Activity Indicator
-if(APP.osname == "iphone" || APP.osname == "ipad") {
-    ActivityIndicatorStyle = Titanium.UI.iPhone.ActivityIndicatorStyle;
-} else if (sdkVersion >= 3.0) {
-    ActivityIndicatorStyle = Titanium.UI.ActivityIndicatorStyle;
 }
 
 APP.checkFirstTime();

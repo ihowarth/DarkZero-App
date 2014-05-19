@@ -1,6 +1,6 @@
 <Alloy>
 	<View id="container">
-		<ScrollView id="newsView" dataCollection="posts" dataTransform="editModels">
+		<ScrollView id="newsView" dataCollection="posts" dataTransform="editNewsModels">
 		    <Require src="News_N_Posts/newsViews"/>
 		</ScrollView>
 		<TableView id="postsTable" dataCollection="posts" dataTransform="editModels">

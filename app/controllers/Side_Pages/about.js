@@ -85,7 +85,7 @@ function showLeavingMessage(webpage) {
 };
 
 function updateTable() {
-    var team = Alloy.Globals.darkZeroTeamLib.getTeam();
+    var team = DarkZeroTeam.getTeam();
     
     var args = {};
     var rows = [];

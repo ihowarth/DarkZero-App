@@ -13,7 +13,7 @@ function addEventListeners() {
     });
     
     $.newsView.addEventListener("click", function(e) {
-    	alert(e.index);
+    	alert(JSON.stringify(e));
     });
 
     $.postsTable.addEventListener("postlayout", function(e) {
@@ -31,7 +31,12 @@ Alloy.Globals.changeFrontPageTheme = function() {
     }
 };
 
+function editNewsModels(e) {
+	var model = e.toJSON();
+	return model;
+};
+
 function editModels(e){
-    var model = e.toJSON;
+    var model = e.toJSON();
     return model;  
 };

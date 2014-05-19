@@ -1,0 +1,11 @@
+<Alloy>
+	<Window id="mainWin">
+	    <View id="opaqueView"/>
+	    <ImageView id="backgroundView">
+	        <View id="indicatorView">
+	           <ActivityIndicator id="activityIndicator"/>
+                <Label id="messageLabel"/>
+            </View>
+	    </ImageView>
+	</Window>
+</Alloy>

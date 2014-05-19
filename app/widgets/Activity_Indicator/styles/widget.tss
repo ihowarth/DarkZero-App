@@ -1,0 +1,40 @@
+"#mainWin" : {
+    
+},
+
+"#opaqueView" : {
+    backgroundColor : "#000000",
+    opacity         : 0.1
+},
+"#backgroundView" : {
+    height : Ti.UI.FILL,
+    width  : Ti.UI.FILL
+},
+
+
+"#indicatorView" : {
+    height          : Ti.UI.SIZE,
+    width           : 280,
+    backgroundColor : "#8E8E93",
+    layout          : "vertical",
+    borderRadius    : 5
+},
+
+"#activityIndicator[platform=android]" : {
+   top   : 10,
+   style : Titanium.UI.ActivityIndicatorStyle.DARK
+},
+"#activityIndicator[platform=ios]" : {
+   top   : 10,
+   style : Titanium.UI.iPhone.ActivityIndicatorStyle.BIG
+},
+
+"#messageLabel" : {
+    top       : 10,
+	font      : {
+	   fontFamily : "Helvetica Neue",
+	   fontSize   : 18
+	},
+	textAlign : "center",
+	color     : "#ffffff",
+}

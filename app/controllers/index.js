@@ -9,9 +9,7 @@ var navBar = Alloy.createController("/navView", {
 }); 
 
 (function init() {
-    APP.activityIndicator.show("/TempImageView.png");
-    
-    //if a theme has not been decided show the decider alert dialog
+    // If a theme has not been decided show the decider alert dialog
     if (!Ti.App.Properties.getString("theme")) {
         showThemeChoiceAlert();
     } else {
@@ -19,7 +17,11 @@ var navBar = Alloy.createController("/navView", {
     }
     
     if(APP.checkNetwork("download new posts")) {
-       // Alloy.Globals.darkZeroDataLib.sendGetRequest();
+    	function startApp() {
+    		$.mainWin.open();
+    	};
+    	
+    	DarkZero.getAllFeeds(startApp);
     }
     
     $.navView.add(navBar.getView());
@@ -36,6 +38,10 @@ function addEventListeners() {
         } else {
             // Do nothing when not clicking a button
         }
+    });
+    
+    $.mainWin.addEventListener( "open" , function() {
+    	ActivityIndicator.hide();
     });
 };
 
@@ -69,5 +75,3 @@ function showThemeChoiceAlert() {
     
     themeAlert.show();
 };
-
-$.mainWin.open();
